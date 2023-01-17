@@ -1,5 +1,5 @@
 const { default: axios } = require("axios");
-const { Country, Activity } = require("../db");
+const { Country, Activity, country_activity } = require("../db");
 const { Op } = require("sequelize");
 
 const setCountriesDB = ({
@@ -30,7 +30,7 @@ const getCountriesFromApi = async () => {
   data.map((c) => {
     setCountriesDB({
       id: c.cca3,
-      name: c.name?.common,
+      name: c.name?.common, //  if(c.name) c.name.common
       flagImg: c.flags[0],
       continent: c.continents[0],
       capital: c.capital?.[0],
@@ -56,15 +56,36 @@ const getCountriesByName = async (name) => {
   throw new Error("No se encontraron coincidencias");
 };
 
-const getCountryAndActivities = (idCountry) => {};
+const getCountryById = async (idCountry) => {
+  const countryAndActivities = await Country.findByPk(idCountry, {
+    include: [
+      {
+        model: Activity,
+        through: {
+          attributes: [],
+        },
+      },
+    ],
+  });
+  return countryAndActivities;
+};
 
-const createActivity = async (name, dificult, duration, season) => {
+const createActivity = async (
+  name,
+  dificult,
+  duration,
+  season,
+  idCountries
+) => {
+  if (!name || !dificult || !duration || !season || !idCountries)
+    throw Error("Faltan datos para la creación de la actividad");
   const newActivity = await Activity.create({
     name,
     dificult,
     duration,
     season,
   });
+  await newActivity.setCountries(idCountries);
   return newActivity;
 };
 
@@ -72,6 +93,6 @@ module.exports = {
   getCountriesFromApi,
   getCountries,
   getCountriesByName,
-  getCountryAndActivities,
+  getCountryById,
   createActivity,
 };
