@@ -3,7 +3,7 @@ const {
   getCountriesFromApi,
   getCountries,
   getCountriesByName,
-  getCountryAndActivities,
+  getCountryById,
 } = require("../../controllers");
 
 const countriesRouter = Router();
@@ -11,6 +11,7 @@ const countriesRouter = Router();
 // GET /countries:
 // En una primera instancia deberán traer todos los países desde restcountries y guardarlos en su propia base de datos y luego ya utilizarlos desde allí (Debe retonar sólo los datos necesarios para la ruta principal)
 // Obtener un listado de los paises.
+
 getCountriesFromApi();
 
 // [ ] GET /countries?name="...":
@@ -39,7 +40,7 @@ countriesRouter.get("/", async (req, res) => {
 countriesRouter.get("/:idCountry", async (req, res) => {
   const { idCountry } = req.params;
   try {
-    res.status(200).json(await getCountryAndActivities(idCountry));
+    res.status(200).json(await getCountryById(idCountry));
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
