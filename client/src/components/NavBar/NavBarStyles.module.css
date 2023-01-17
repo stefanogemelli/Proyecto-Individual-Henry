@@ -1,0 +1,21 @@
+.nav{
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+.link{
+  color: white;
+  text-decoration: none;
+}
+.ul{
+  display: flex;
+  border: 1px solid rgb(167, 25, 25);
+  width: min-content;
+}
+.li{
+  list-style: none;
+  border: 1px solid rgb(167, 25, 25);
+  font-size: 1.5rem;
+  padding: .5rem 1rem;
+}
