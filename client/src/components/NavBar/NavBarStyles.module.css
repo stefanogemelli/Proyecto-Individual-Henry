@@ -1,21 +1,28 @@
 .nav{
-  border: 1px solid white;
+  border: 3px solid white;
   display: flex;
-  justify-content: center;
-  padding: 2rem;
-}
-.link{
-  color: white;
-  text-decoration: none;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100px;
+  padding-right: 10vw;
 }
 .ul{
+  /* border: 5px solid rgb(167, 25, 25); */
   display: flex;
-  border: 1px solid rgb(167, 25, 25);
-  width: min-content;
+  /* width: 320px; */
+  justify-content: space-between;
+}
+.link{
+  color: #151515;
+  background-color: #ddd;
+  border-radius: 2px;
+  text-decoration: none;
+  padding: .4rem 1rem;
+  display: block;
+  margin:0 .7rem;
 }
 .li{
   list-style: none;
-  border: 1px solid rgb(167, 25, 25);
-  font-size: 1.5rem;
-  padding: .5rem 1rem;
+  font-size: 1.3rem;
+  font-weight: 500;
 }

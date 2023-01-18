@@ -1,5 +1,5 @@
 const { default: axios } = require("axios");
-const { Country, Activity, country_activity } = require("../db");
+const { Country, Activity } = require("../db");
 const { Op } = require("sequelize");
 
 const setCountriesDB = ({
@@ -61,13 +61,14 @@ const getCountryById = async (idCountry) => {
     include: [
       {
         model: Activity,
+        // attributes: ["name"],
         through: {
           attributes: [],
         },
       },
     ],
   });
-  return countryAndActivities;
+  return countryAndActivities; //const newRessult = [{name, id, data, estonova} ].map(c=>{c.name , c.id, c.data})
 };
 
 const createActivity = async (

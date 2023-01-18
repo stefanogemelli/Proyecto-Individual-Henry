@@ -7,12 +7,12 @@ function NavBar() {
         <ul className={`${s.ul}`}>
           <li className={`${s.li}`}>
             <Link to="/home" className={`${s.link}`}>
-              Home
+              Inicio
             </Link>
           </li>
           <li className={`${s.li}`}>
-            <Link to="/create" className={`${s.link}`}>
-              Create
+            <Link to="/createactivity" className={`${s.link}`}>
+              Crear Actividad
             </Link>
           </li>
         </ul>
