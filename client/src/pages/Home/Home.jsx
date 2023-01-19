@@ -1,33 +1,25 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import * as actions from "../../redux/actions";
+
+import Pagination from "../../components/Pagination/Pagination";
 import Filters from "../../components/Filters/Filters";
-import Button from "../../components/Buttons/Button";
-import { useState } from "react";
+import SearchCountryByName from "../../components/SearchCountryByName/SearchCountryByName";
+import s from "./HomeStyles.module.css";
+
 function Home() {
-  const [countryName, setCountryName] = useState("");
-  const [countries, setCountries] = useState([]);
-  //buscar paises por nombre
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(actions.getAllCountriesApi());
+  }, []);
 
-  const searchCountries = async (e) => {
-    e.preventDefault();
-
-    // setCountries(results);
-  };
-  const handleChange = (e) => {
-    setCountryName(e.target.value);
-  };
   return (
-    <>
-      <form onSubmit={searchCountries}>
-        <input onChange={handleChange} type="text" value={countryName} />
-        <Button type="submit">Search Countries</Button>
-      </form>
+    <section className={`${s.container}`}>
+      <SearchCountryByName />
       <Filters />
 
-      {Array.isArray(countries) ? (
-        countries.map((country) => <h2 key={country.id}>{country.name}</h2>)
-      ) : (
-        <h2>No se encontraron paises</h2>
-      )}
-    </>
+      <Pagination amount={9} />
+    </section>
   );
 }
 

@@ -1,5 +1,4 @@
 import { Switch, Route, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
 
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
@@ -10,8 +9,6 @@ import Landing from "./pages/Landing/Landing";
 
 function App() {
   const { pathname } = useLocation();
-  // useDispatch;
-  console.log(pathname);
   return (
     <div className="App">
       {pathname !== "/" && <NavBar />}

@@ -1,22 +1,27 @@
 import { Link } from "react-router-dom";
 
-import { Container, H1, Video, ButtonHome, Capa } from "./Styled-Components";
+import s from "./LandingStyles.module.css";
 import BGLanding from "../../assets/BGLanding.mp4";
 
 function Landing() {
   const handleClick = () => {};
   return (
     <>
-      <Container>
-        <H1>Proyecto Individual Countries</H1>
+      <section className={`${s.container}`}>
+        <h1 className={`${s.h1}`}>Proyecto Individual Countries</h1>
         <Link to="/home">
-          <ButtonHome onClick={handleClick}>Inicio</ButtonHome>
+          <button className={`${s.button}`} onClick={handleClick}>
+            <span className={`${s.span_text}`}>
+              Comenzar
+              <span className={`${s.button_bg1}`}></span>
+            </span>
+          </button>
         </Link>
-        <Video autoPlay loop muted>
+        <video className={`${s.video}`} autoPlay loop muted>
           <source src={BGLanding} type="video/mp4" />
-        </Video>
-        <Capa></Capa>
-      </Container>
+        </video>
+        <div className={`${s.capa}`}></div>
+      </section>
     </>
   );
 }

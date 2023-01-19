@@ -5,6 +5,8 @@
   align-items: center;
   height: 100px;
   padding-right: 10vw;
+  position: absolute;
+  width: 100%;
 }
 .ul{
   /* border: 5px solid rgb(167, 25, 25); */
