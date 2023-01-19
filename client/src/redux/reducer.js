@@ -4,6 +4,7 @@ const initialState = {
   // ...
   allCountries: [],
   filteredCountries: [],
+  filters: {},
 };
 
 export const rootReducer = (state = initialState, { type, payload }) => {
@@ -13,9 +14,6 @@ export const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         allCountries: [...payload],
       };
-    // case CREATE_ACTIVITY: return {
-
-    // }
 
     default:
       return { ...state };
