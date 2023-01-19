@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../../redux/actions";
 
 import Pagination from "../../components/Pagination/Pagination";
@@ -9,8 +9,9 @@ import s from "./HomeStyles.module.css";
 
 function Home() {
   const dispatch = useDispatch();
+  const allCountries = useSelector((state) => state.allCountries);
   useEffect(() => {
-    dispatch(actions.getAllCountriesApi());
+    !allCountries.length && dispatch(actions.getAllCountriesApi());
   }, []);
 
   return (

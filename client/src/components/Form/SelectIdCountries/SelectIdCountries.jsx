@@ -1,7 +1,13 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
 
 function SelectIdCountries({ idCountries, setIdCountries }) {
   const allCountries = useSelector((state) => state.allCountries);
+
+  // const [countryName, setCountryName] = useState("");
+  // const handleClickOption = (e) => {
+  //   setCountryName()
+  // }
 
   const handleSelect = (e) => {
     const newId = e.target.value;
@@ -12,11 +18,14 @@ function SelectIdCountries({ idCountries, setIdCountries }) {
       setIdCountries([...idCountries, newId]);
     }
   };
+
   return (
     <select onChange={handleSelect}>
       <option hidden>Seleccionar Paises</option>
-      {allCountries?.map((c) => (
-        <option value={c.id}>{c.name}</option>
+      {allCountries.slice(0, 5)?.map((c) => (
+        <option key={c.id} value={c.id} name={c.name}>
+          {c.name}
+        </option>
       ))}
     </select>
   );
