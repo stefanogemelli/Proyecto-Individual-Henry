@@ -48,7 +48,16 @@ const getCountriesFromApi = async () => {
 // getCountriesFromApi();
 
 const getCountries = async () => {
-  const listCountries = await Country.findAll();
+  const listCountries = await Country.findAll({
+    include: [
+      {
+        model: Activity,
+        through: {
+          attributes: [],
+        },
+      },
+    ],
+  });
   return listCountries;
 };
 
