@@ -11,8 +11,8 @@ function SelectIdCountries({ idCountries, setIdCountries }) {
 
   const handleSelect = (e) => {
     const newId = e.target.value;
-    const idFinded = idCountries.filter((id) => id == newId);
-    if (idFinded.length) {
+    const idFinded = idCountries.find((id) => id == newId);
+    if (idFinded) {
       setIdCountries(idCountries.filter((id) => id != newId));
     } else {
       setIdCountries([...idCountries, newId]);
@@ -22,7 +22,7 @@ function SelectIdCountries({ idCountries, setIdCountries }) {
   return (
     <select onChange={handleSelect}>
       <option hidden>Seleccionar Paises</option>
-      {allCountries.slice(0, 5)?.map((c) => (
+      {allCountries?.map((c) => (
         <option key={c.id} value={c.id} name={c.name}>
           {c.name}
         </option>

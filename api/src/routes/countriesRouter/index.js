@@ -1,6 +1,5 @@
 const { Router } = require("express");
 const {
-  getCountriesFromApi,
   getCountries,
   getCountriesByName,
   getCountryById,
@@ -11,8 +10,6 @@ const countriesRouter = Router();
 // GET /countries:
 // En una primera instancia deberán traer todos los países desde restcountries y guardarlos en su propia base de datos y luego ya utilizarlos desde allí (Debe retonar sólo los datos necesarios para la ruta principal)
 // Obtener un listado de los paises.
-
-getCountriesFromApi();
 
 // [ ] GET /countries?name="...":
 // Obtener los países que coincidan con el nombre pasado como query parameter (No necesariamente tiene que ser una matcheo exacto)

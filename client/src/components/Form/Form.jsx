@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createActivity } from "../../services/createActivity";
 
 import s from "./FormStyles.module.css";
 import SelectIdCountries from "./SelectIdCountries/SelectIdCountries";
@@ -19,14 +20,15 @@ function Form() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = await fetch("http://localhost:3001/activities", {
-      method: "POST",
-      body: JSON.stringify({ ...inputs, idCountries }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((data) => data.json());
+    const data = createActivity({ ...inputs, idCountries });
     // MOSTRAR VENTANA EMERGENTE CON MENSAJE DE CONFIRMACION
+    setInputs({
+      name: "",
+      dificult: "",
+      duration: "",
+      season: "",
+    });
+    setIdCountries([]);
   };
   return (
     <>

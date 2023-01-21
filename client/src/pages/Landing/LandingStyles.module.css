@@ -102,17 +102,19 @@
   backdrop-filter: invert();
   z-index: 100;
   display: inline-block;
-  height: 500px;
-  width: 500px;
+  height: 100%;
+  width: 145%;
   position: absolute;
-  top: -90%;
-  left: -850px;
-  transform: scale(2) rotate(45deg);
+  top: 0%;
+  left: -145%;
+  /* transform:rotate(45deg); */
   transition: all .15s ease;
+  /* width: 200%; */
+
+  clip-path: polygon(0 0, 70% 0, 100% 100%, 0% 100%);;
 }
 .button:hover .button_bg1{ 
-  transform:  rotate(45deg);
-  left: -125px;
+  left:0%;
 
 }
 

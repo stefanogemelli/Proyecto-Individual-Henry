@@ -12,6 +12,7 @@ const setCountriesDB = ({
   area,
   population,
 }) => {
+  console.log(name);
   if (id && name && flagImg && continent && capital)
     return Country.create({
       id,
@@ -26,20 +27,25 @@ const setCountriesDB = ({
 };
 
 const getCountriesFromApi = async () => {
-  const { data } = await axios.get("https://restcountries.com/v3/all");
-  data.map((c) => {
-    setCountriesDB({
-      id: c.cca3,
-      name: c.name?.common, //  if(c.name) c.name.common
-      flagImg: c.flags[0],
-      continent: c.continents[0],
-      capital: c.capital?.[0],
-      subregion: c.subregion,
-      area: c.area,
-      population: c.population,
+  try {
+    const { data } = await axios.get("https://restcountries.com/v3/all");
+    data.map((c) => {
+      setCountriesDB({
+        id: c.cca3,
+        name: c.name?.common, //  if(c.name) c.name.common
+        flagImg: c.flags[0],
+        continent: c.continents[0],
+        capital: c.capital?.[0],
+        subregion: c.subregion,
+        area: c.area,
+        population: c.population,
+      });
     });
-  });
+  } catch (error) {
+    throw Error("hola");
+  }
 };
+// getCountriesFromApi();
 
 const getCountries = async () => {
   const listCountries = await Country.findAll();
@@ -61,7 +67,6 @@ const getCountryById = async (idCountry) => {
     include: [
       {
         model: Activity,
-        // attributes: ["name"],
         through: {
           attributes: [],
         },

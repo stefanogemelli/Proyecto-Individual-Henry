@@ -2,9 +2,10 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../../redux/actions";
 
-import Pagination from "../../components/Pagination/Pagination";
+import SearchCountry from "../../components/SearchCountry/SearchCountry";
 import Filters from "../../components/Filters/Filters";
-import SearchCountryByName from "../../components/SearchCountryByName/SearchCountryByName";
+import Pagination from "../../components/Pagination/Pagination";
+
 import s from "./HomeStyles.module.css";
 
 function Home() {
@@ -16,10 +17,12 @@ function Home() {
 
   return (
     <section className={`${s.container}`}>
-      <SearchCountryByName />
+      <div className={`${s.background}`}></div>
+      <div className={`${s.capa}`}></div>
+      <SearchCountry />
       <Filters />
 
-      <Pagination amount={9} />
+      <Pagination />
     </section>
   );
 }

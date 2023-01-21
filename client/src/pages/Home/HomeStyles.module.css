@@ -1,7 +1,33 @@
 
 .container{
-  background-image: url("../../assets/BGHome.jpg");
-  min-height: 100vh;
+  /* background-image: url("../../assets/Home.jpg"); */
   padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  border: 10px solid red;
+}
 
+.background{
+  background-image: url("../../assets/Home.jpg");
+  height: 100vh;
+  min-width: 100vw;
+  position: fixed;
+  top: 0;
+  justify-content: space-around;
+  z-index: -2;
+}
+
+.capa{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(34, 41, 112, 0.3);
+  z-index: -1;
+  backdrop-filter: blur(4px);
+  mix-blend-mode: overlay;
 }

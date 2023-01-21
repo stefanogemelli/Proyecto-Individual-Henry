@@ -1,0 +1,11 @@
+.searchContainer{
+  position: absolute;
+  z-index: 10000000;
+  left:50%;
+  top: 100px;
+  transform: translateX(-50%);
+}
+.input , .button{
+font-size: 1.4rem;
+margin: 0 2px;
+}
