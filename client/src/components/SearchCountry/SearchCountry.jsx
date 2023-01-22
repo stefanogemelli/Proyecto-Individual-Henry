@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { searchByName } from "../../redux/actions";
+import { filterCountries } from "../../redux/actions";
 import s from "./SearchCountryStyles.module.css";
 
 function SearchCountry() {
@@ -8,15 +8,14 @@ function SearchCountry() {
   const dispatch = useDispatch();
   const searchCountries = (e) => {
     e.preventDefault();
-    //dispatch de searchByName
-    dispatch(searchByName(countryName));
+    dispatch(filterCountries({ filter: "name", value: countryName }));
     setCountryName("");
   };
   const handleChange = (e) => {
     setCountryName(e.target.value);
   };
   const showAll = () => {
-    dispatch(searchByName(""));
+    dispatch(filterCountries({ filter: "name", value: "" }));
     setCountryName("");
   };
   return (

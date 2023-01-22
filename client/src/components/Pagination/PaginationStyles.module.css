@@ -1,14 +1,12 @@
 .cardsContainer{
-  margin-top: 50px;
+  margin-top: 20px;
+  margin-left: 50px;
   width: 100%;
   max-width: 1200px;
-  /* height: 200vh; */
   display: grid;
-  grid-template-columns: repeat(3,350px);
-  /* grid-auto-rows: 600px; */
-  grid-auto-rows: 270px;
-  gap: 2rem;
-  border: 2px solid red;
+  grid-template-columns: repeat(3,250px);
+  grid-auto-rows: 200px;
+  gap: 20px;
   justify-content: center;
 }
 .buttons{

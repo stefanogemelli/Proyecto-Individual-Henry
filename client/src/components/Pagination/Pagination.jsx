@@ -20,7 +20,6 @@ function Pagination() {
   ); // slice(0,9)
 
   const handleClick = (e) => {
-    console.log(e.target.value);
     setPage(e.target.value);
   };
 

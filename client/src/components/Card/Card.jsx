@@ -14,8 +14,8 @@ function Card({ country }) {
             className={`${s.flag}`}
           /> */}
         </Image>
-        <h2>{country.name}</h2>
-        <p>{country.continent}</p>
+        <h2 className={`${s.country}`}>{country.name}</h2>
+        <p className={`${s.continent}`}>{country.continent}</p>
         <svg viewBox="0 0 28 25" className={`${s.svg}`}>
           <path
             fill="#16127f"

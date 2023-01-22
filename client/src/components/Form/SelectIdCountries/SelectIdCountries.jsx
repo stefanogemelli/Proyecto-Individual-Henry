@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
 
 function SelectIdCountries({ idCountries, setIdCountries }) {
@@ -11,7 +10,7 @@ function SelectIdCountries({ idCountries, setIdCountries }) {
 
   const handleSelect = (e) => {
     const newId = e.target.value;
-    const idFinded = idCountries.find((id) => id == newId);
+    const idFinded = idCountries.find((id) => id === newId);
     if (idFinded) {
       setIdCountries(idCountries.filter((id) => id != newId));
     } else {

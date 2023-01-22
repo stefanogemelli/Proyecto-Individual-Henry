@@ -10,12 +10,10 @@ import Home from "./pages/Home/Home";
 import Landing from "./pages/Landing/Landing";
 
 function App() {
-  console.log(Switch);
   const { pathname } = useLocation();
   return (
     <div className="App">
       {pathname !== "/" && <NavBar />}
-      {/* <Random></Random> */}
 
       <Switch>
         <Route exact path="/" component={Landing} />
@@ -28,10 +26,3 @@ function App() {
 }
 
 export default App;
-
-const Random = styled.div`
-  height: 1000px;
-
-  width: 800px;
-  background-color: red;
-`;

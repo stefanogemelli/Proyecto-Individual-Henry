@@ -1,6 +1,6 @@
-export const CREATE_ACTIVITY = "CREATE_ACTIVITY";
 export const GET_ALL_COUNTRIES_API = "GET_ALL_COUNTRIES_API";
-export const SEARCH_BY_NAME = "SEARCH_BY_NAME";
+export const SORT = "SORT";
+export const FILTER_COUNTRIES = "FILTER";
 
 export const getAllCountriesApi = () => async (dispatch) => {
   try {
@@ -16,9 +16,18 @@ export const getAllCountriesApi = () => async (dispatch) => {
   }
 };
 
-export const searchByName = (name) => {
+export const filterCountries = (payload) => {
+  //  payload = {filter:"name /continent /activities",value:"value"}
+
   return {
-    type: SEARCH_BY_NAME,
-    payload: name,
+    type: FILTER_COUNTRIES,
+    payload: payload,
+  };
+};
+export const sort = (payload) => {
+  //  payload = {sort:"name /population",value:"ascendent"}
+  return {
+    type: SORT,
+    payload: payload,
   };
 };
