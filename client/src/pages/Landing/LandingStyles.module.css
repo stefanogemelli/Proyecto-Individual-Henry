@@ -4,8 +4,8 @@
 }
 .h1{
   font-size: 3rem;
-  color: #bbb;
-  text-shadow: 0px 0px 3px #303030;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 3px #000000;
   position: absolute;
   top: 25%;
   left: 50%;
@@ -27,12 +27,23 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0,0.5);
+  /* background-color: rgba(0, 0, 0,0.5); */
   z-index: -1;
-  opacity: .7;
-  backdrop-filter: blur(30px);
+  opacity: .8;
+  backdrop-filter:  grayscale(80%);
   mix-blend-mode: overlay;
 }
+/* backdrop-filter: brightness(60%);
+backdrop-filter: contrast(180%);
+backdrop-filter: grayscale(100%);
+backdrop-filter: hue-rotate(180deg);
+backdrop-filter: invert(80%);
+backdrop-filter: opacity(50%);
+backdrop-filter: saturate(7);
+backdrop-filter: sepia(100%);
+backdrop-filter: drop-shadow(8px 8px 10px green);
+backdrop-filter: none; */
+/*  brightness() */
 
 
 .button {

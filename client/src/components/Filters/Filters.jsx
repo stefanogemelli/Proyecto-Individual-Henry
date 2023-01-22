@@ -3,10 +3,11 @@ import FilterSelect from "./FilterSelect/FilterSelect";
 
 const continents = [
   "Todos",
+  "Africa",
+  "Antarctica",
   "Asia",
   "North America",
   "South America",
-  "Africa",
   "Europe",
   "Oceania",
 ];

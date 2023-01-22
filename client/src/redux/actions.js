@@ -1,6 +1,6 @@
 export const GET_ALL_COUNTRIES_API = "GET_ALL_COUNTRIES_API";
-export const SORT = "SORT";
 export const FILTER_COUNTRIES = "FILTER";
+export const SORT_COUNTRIES = "SORT_COUNTRIES";
 
 export const getAllCountriesApi = () => async (dispatch) => {
   try {
@@ -18,16 +18,16 @@ export const getAllCountriesApi = () => async (dispatch) => {
 
 export const filterCountries = (payload) => {
   //  payload = {filter:"name /continent /activities",value:"value"}
-
   return {
     type: FILTER_COUNTRIES,
     payload: payload,
   };
 };
-export const sort = (payload) => {
+
+export const sortCountries = (payload) => {
   //  payload = {sort:"name /population",value:"ascendent"}
   return {
-    type: SORT,
+    type: SORT_COUNTRIES,
     payload: payload,
   };
 };

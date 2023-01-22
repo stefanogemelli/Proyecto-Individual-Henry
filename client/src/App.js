@@ -1,4 +1,4 @@
-import { Switch, Routes, Route, useLocation } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 
 import styled from "styled-components";
 

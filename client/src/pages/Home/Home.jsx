@@ -19,7 +19,7 @@ function Home() {
     <section className={`${s.container}`}>
       <div className={`${s.background}`}></div>
       <div className={`${s.capa}`}></div>
-      <SearchCountry />
+      {/* <SearchCountry /> */}
       <SideBar />
 
       <Pagination />

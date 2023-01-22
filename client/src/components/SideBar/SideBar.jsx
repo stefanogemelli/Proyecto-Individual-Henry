@@ -1,3 +1,5 @@
+import SearchCountry from "../SearchCountry/SearchCountry";
+
 import styled from "styled-components";
 import Filters from "../Filters/Filters";
 import Sorts from "../Sorts/Sorts";
@@ -5,9 +7,11 @@ import Sorts from "../Sorts/Sorts";
 function SideBar() {
   return (
     <Container>
+      <SearchCountry />
+
       <Filters />
 
-      {/* <Sorts /> */}
+      <Sorts />
     </Container>
   );
 }

@@ -1,26 +1,21 @@
-import { GET_ALL_COUNTRIES_API, FILTER_COUNTRIES } from "./actions"; // FILTER_BY_NAME
+import {
+  GET_ALL_COUNTRIES_API,
+  FILTER_COUNTRIES,
+  SORT_COUNTRIES,
+} from "./actions"; // FILTER_BY_NAME
 
 const initialState = {
   // ...
   allCountries: [],
   countriesKeysNames: {},
   filteredCountries: [],
-  filters: {
-    //  name: false, //si la prop esta en false => aplicar filtro sobre filteredCountries y hacer toggle
-    //  continent: false, //si la prop esta en true => aplicar todos los filtros(y sort) menos payload y hacer toggle
-    //  activities: false, //extra... => false == undefined == noSeteada (delete filters[key])
-  },
-  sorts: {
-    type: "",
-    value: "", // ascendente / descendente
-    //aplicar siempre sobre filtered y all(mas facil al no tener que re-aplicar al cambiar filtros)
-  },
+  filters: {}, // {type:value}
+  sorts: {}, // {type:value}
 };
 
 export const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case GET_ALL_COUNTRIES_API:
-      console.log(payload[0]);
       const countriesKeyName = {};
       payload.forEach((country) => {
         countriesKeyName[country.id] = country.name;
@@ -35,7 +30,6 @@ export const rootReducer = (state = initialState, { type, payload }) => {
       // leer si existe el filtro entrante, caso true => aplicar todos sobre allCountries nuevamente
       //    caso false => aplicar filtro entrante sobre filteredCountries
       let newFilteredCountries = [...state.allCountries];
-      console.log("recien cargado de all", newFilteredCountries);
       const stateFilters = { ...state.filters };
       const { filter, value } = payload;
       if (value === "") {
@@ -65,11 +59,35 @@ export const rootReducer = (state = initialState, { type, payload }) => {
           return false;
         });
       }
-      console.log(newFilteredCountries);
       return {
         ...state,
         filteredCountries: newFilteredCountries,
         filters: { ...stateFilters },
+      };
+
+    //SORT_COUNTRIES
+    case SORT_COUNTRIES: //payload = {sort:"name /population",value:"ascendent"}
+      return {
+        ...state,
+        allCountries: [...state.allCountries].sort((a, b) =>
+          payload.value === "Ascendente"
+            ? a[payload.sort] > b[payload.sort]
+              ? 1
+              : -1
+            : b[payload.sort < a[payload.sort]]
+            ? 1
+            : -1
+        ),
+        filteredCountries: [...state.filteredCountries].sort((a, b) =>
+          payload.value === "Ascendente"
+            ? a[payload.sort] > b[payload.sort]
+              ? 1
+              : -1
+            : b[payload.sort < a[payload.sort]]
+            ? 1
+            : -1
+        ),
+        sorts: { [payload.sort]: payload.value },
       };
 
     default:

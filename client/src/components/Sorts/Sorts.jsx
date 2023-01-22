@@ -1,5 +1,5 @@
-import Select from "../Select/Select";
-import { sort } from "../../redux/actions";
+import { sortCountries } from "../../redux/actions";
+import Select from "./Select/Select";
 
 const sortOptions = ["Desactivado", "Ascendente", "Descendente"];
 
@@ -8,10 +8,10 @@ function Sorts() {
     <div>
       <h2>Ordenar por</h2>
       <label>Nombre</label>
-      <Select options={sortOptions} action={sort} />
+      <Select options={sortOptions} name="name" />
 
       <label>Población</label>
-      <Select options={sortOptions} action={sort} />
+      <Select options={sortOptions} name="population" />
     </div>
   );
 }

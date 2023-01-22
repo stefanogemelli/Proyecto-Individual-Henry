@@ -9,7 +9,6 @@ function Pagination() {
   const [page, setPage] = useState(1);
 
   // allCountries = 10
-
   const amount = 9;
 
   const totalPages = Math.ceil(allCountries.length / amount); // cantidad de paginas
@@ -22,6 +21,13 @@ function Pagination() {
   const handleClick = (e) => {
     setPage(e.target.value);
   };
+  const handleLR = (e) => {
+    if (e.target.value === "L") {
+      page > 1 && setPage(page - 1);
+    } else {
+      page < totalPages && setPage(page + 1);
+    }
+  };
 
   const buttonIndex = []; //  [1,2,3,4,5]
   for (let i = 1; i <= totalPages; i++) {
@@ -32,24 +38,26 @@ function Pagination() {
     <>
       <div>
         <div className={`${s.buttons}`}>
+          <button onClick={handleLR} value="L">
+            Left
+          </button>
           {buttonIndex.map((i) => (
-            <button value={i} onClick={handleClick}>
+            <button
+              value={i}
+              onClick={handleClick}
+              active={page === i && "active"}
+            >
               {i}
             </button>
           ))}
+          <button onClick={handleLR} value="R">
+            Right
+          </button>
         </div>
 
         <div className={`${s.cardsContainer}`}>
           {paginatedCountries.map((country) => (
             <Card key={country.id} country={country} />
-          ))}
-        </div>
-
-        <div className={`${s.buttons}`}>
-          {buttonIndex.map((i) => (
-            <button value={i} onClick={handleClick}>
-              {i}
-            </button>
           ))}
         </div>
       </div>
