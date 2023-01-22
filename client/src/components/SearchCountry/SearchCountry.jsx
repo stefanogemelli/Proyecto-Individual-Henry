@@ -12,7 +12,6 @@ function SearchCountry() {
   const searchCountries = (e) => {
     e.preventDefault();
     dispatch(filterCountries({ filter: "name", value: countryName }));
-    setCountryName("");
   };
   const handleChange = (e) => {
     setCountryName(e.target.value);
