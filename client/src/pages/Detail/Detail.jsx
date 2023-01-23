@@ -22,6 +22,7 @@ function Detail() {
   return (
     <>
       <div className={s.container}>
+        <h1>HOLA</h1>
         <div className={s.bg} continent={country.continent}></div>
         <div className={s.capa}></div>
       </div>

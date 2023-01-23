@@ -34,8 +34,6 @@ export const rootReducer = (state = initialState, { type, payload }) => {
       const { filter, value } = payload;
       if (value === "") {
         delete stateFilters[filter];
-        console.log(stateFilters[filter]);
-        console.log(stateFilters);
       } else {
         stateFilters[filter] = value;
       }
@@ -69,24 +67,36 @@ export const rootReducer = (state = initialState, { type, payload }) => {
     case SORT_COUNTRIES: //payload = {sort:"name /population",value:"ascendent"}
       return {
         ...state,
-        allCountries: [...state.allCountries].sort((a, b) =>
-          payload.value === "Ascendente"
-            ? a[payload.sort] > b[payload.sort]
-              ? 1
-              : -1
-            : b[payload.sort < a[payload.sort]]
-            ? 1
-            : -1
-        ),
-        filteredCountries: [...state.filteredCountries].sort((a, b) =>
-          payload.value === "Ascendente"
-            ? a[payload.sort] > b[payload.sort]
-              ? 1
-              : -1
-            : b[payload.sort < a[payload.sort]]
-            ? 1
-            : -1
-        ),
+        allCountries: [...state.allCountries].sort((a, b) => {
+          if (payload.value === "Ascendente") {
+            if (a[payload.sort] > b[payload.sort]) {
+              return 1;
+            } else {
+              return -1;
+            }
+          } else {
+            if (a[payload.sort] > b[payload.sort]) {
+              return -1;
+            } else {
+              return 1;
+            }
+          }
+        }), // REVISAR REVISAR REVISAR REVISAR REVISAR REVISAR REVISAR REVISAR REVISAR REVISAR
+        filteredCountries: [...state.filteredCountries].sort((a, b) => {
+          if (payload.value === "Ascendente") {
+            if (a[payload.sort] > b[payload.sort]) {
+              return 1;
+            } else {
+              return -1;
+            }
+          } else {
+            if (a[payload.sort] > b[payload.sort]) {
+              return -1;
+            } else {
+              return 1;
+            }
+          }
+        }),
         sorts: { [payload.sort]: payload.value },
       };
 

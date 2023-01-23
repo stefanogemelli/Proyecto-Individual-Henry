@@ -1,14 +1,46 @@
 .cardsContainer{
-  margin-top: 20px;
+  margin-top: 10px;
   margin-left: 50px;
-  width: 100%;
+  width: 80vw;
+  /* border: 2px solid white; */
   max-width: 1200px;
   display: grid;
-  grid-template-columns: repeat(3,250px);
+  grid-template-columns: repeat(3,300px);
   grid-auto-rows: 200px;
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
 }
 .buttons{
-  margin-top: 50px;
+  margin: 20px;
+}
+.btn{
+  font-size: 1.1rem;
+  margin: 4px;
+  width: 25px;
+  border-radius: .5px;
+  background-color: var(--bg);
+  /* color: var(--golden); */
+  /* border-color: var(--text); */
+  color: var(--text);
+  border: none;
+  transition: all .1s ease;
+}
+.btn:hover{
+  color: var(--golden);
+  border-color: var(--golden);
+  transform: scale(1.1);
+  outline: 1px solid var(--golden);
+
+}
+.btn:active{
+  transform: scale(1);
+  box-shadow: inset 0px 0px 4px var(--golden);
+
+}
+.active{
+  transform: scale(1.1);
+  color: var(--golden);
+  border-color: var(--golden);
+  outline: 1px solid var(--golden);
+  box-shadow: inset 0px 0px 7px var(--golden);
 }

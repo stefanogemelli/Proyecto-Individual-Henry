@@ -46,7 +46,7 @@ function Pagination() {
               key={i}
               value={i}
               onClick={handleClick}
-              // active={page === i && "active"}
+              className={`${s.btn} ${page == i && s.active}`}
             >
               {i}
             </button>
