@@ -1,6 +1,7 @@
 export const GET_ALL_COUNTRIES_API = "GET_ALL_COUNTRIES_API";
 export const FILTER_COUNTRIES = "FILTER";
 export const SORT_COUNTRIES = "SORT_COUNTRIES";
+export const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 
 export const getAllCountriesApi = () => async (dispatch) => {
   try {
@@ -28,6 +29,13 @@ export const sortCountries = (payload) => {
   //  payload = {sort:"name /population",value:"ascendent"}
   return {
     type: SORT_COUNTRIES,
+    payload: payload,
+  };
+};
+
+export const setCurrentPage = (payload) => {
+  return {
+    type: SET_CURRENT_PAGE,
     payload: payload,
   };
 };

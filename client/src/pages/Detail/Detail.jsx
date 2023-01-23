@@ -9,6 +9,7 @@ import s from "./styles.module.css";
 function Detail() {
   const { idCountry } = useParams();
   const [country, setCountry] = useState({});
+
   useEffect(() => {
     fetch(`http://localhost:3001/countries/${idCountry}`)
       .then((data) => data.json())

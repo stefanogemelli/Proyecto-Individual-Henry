@@ -2,6 +2,7 @@ import {
   GET_ALL_COUNTRIES_API,
   FILTER_COUNTRIES,
   SORT_COUNTRIES,
+  SET_CURRENT_PAGE,
 } from "./actions"; // FILTER_BY_NAME
 
 const initialState = {
@@ -11,6 +12,7 @@ const initialState = {
   filteredCountries: [],
   filters: {}, // {type:value}
   sorts: {}, // {type:value}
+  currentPage: 1,
 };
 
 export const rootReducer = (state = initialState, { type, payload }) => {
@@ -100,6 +102,11 @@ export const rootReducer = (state = initialState, { type, payload }) => {
         sorts: { [payload.sort]: payload.value },
       };
 
+    case SET_CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: payload,
+      };
     default:
       return { ...state };
   }

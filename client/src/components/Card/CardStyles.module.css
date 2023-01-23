@@ -2,14 +2,20 @@
 .link{
   text-decoration: none;
   color: black;
+  transition: all .1s ease;
+  /* border: 1px solid white; */
 }
 
 .article{
   width: 100%;
   height: 100%;
-  border: 2px solid #202020;
   border-radius: 3px;
   position: relative;
+  box-shadow:  2px 2px 5px var(--shadow),
+             -2px -2px 5px var(--light);
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
 }
 
 .svg {
@@ -24,11 +30,27 @@
 .link:hover .svg{
   opacity: 1;
 }
+.link:hover .article{
+  background-color: var(--bgHover);
+  box-shadow:  5px 5px 7px var(--shadow),
+             -5px -5px 7px var(--light);
+}
+
 .country{
   font-size: 1.3rem;
   line-height: 1.3rem;
-  /* margin: ; */
-}
-/* .continent{
+  transition: all .1s ease;
 
-} */
+}
+.link:hover .country {
+  color: var(--golden);
+}
+.link:hover .hr {
+  border-color: var(--golden);
+}
+.link:hover{
+  transform: scale(1.01);
+}
+.hr{
+  transition: all .1s ease;
+}

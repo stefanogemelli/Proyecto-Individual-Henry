@@ -1,17 +1,29 @@
+import { useEffect } from "react";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setCurrentPage } from "../../redux/actions";
+
 import Card from "../Card/Card";
+import ArrowDRight from "./Arrows/ArrowDRight";
+import ArrowRight from "./Arrows/ArrowRight";
+import ArrowLeft from "./Arrows/ArrowLeft";
+import ArrowDLeft from "./Arrows/ArrowDLeft";
 
 import s from "./PaginationStyles.module.css";
 
 function Pagination() {
   const allCountries = useSelector((state) => state.filteredCountries);
-  const [page, setPage] = useState(1);
+  const currentPage = useSelector((state) => state.currentPage);
+
+  const dispatch = useDispatch();
+  const [page, setPage] = useState(currentPage);
+
+  useEffect(() => dispatch(setCurrentPage(page)), [page]);
 
   // allCountries = 10
   const amount = 9;
 
-  const totalPages = Math.ceil(allCountries.length / amount); // cantidad de paginas
+  const totalPages = Math.ceil(allCountries.length / amount);
 
   const paginatedCountries = allCountries.slice(
     (page - 1) * amount, // pag2 =>  [9]
@@ -38,8 +50,11 @@ function Pagination() {
     <>
       <div>
         <div className={`${s.buttons}`}>
-          <button onClick={handleLR} value="L">
-            Left
+          <button onClick={handleLR} value="L" className={s.btnArrow}>
+            <ArrowDLeft />
+          </button>
+          <button onClick={handleLR} value="L" className={s.btnArrow}>
+            <ArrowLeft />
           </button>
           {buttonIndex.map((i) => (
             <button
@@ -51,8 +66,11 @@ function Pagination() {
               {i}
             </button>
           ))}
-          <button onClick={handleLR} value="R">
-            Right
+          <button onClick={handleLR} value="R" className={s.btnArrow}>
+            <ArrowRight />
+          </button>
+          <button onClick={handleLR} value="R" className={s.btnArrow}>
+            <ArrowDRight />
           </button>
         </div>
 

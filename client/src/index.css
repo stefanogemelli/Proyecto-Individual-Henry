@@ -1,6 +1,9 @@
 :root{
   --brown: #87764f;
   --golden: #d29022;
+  /* --golden: #B98A4C; */
+  --light: #a3a3a3;
+  --shadow: #1d1d1d;
   --text: #c0bfc2;
   --textHover: #96703F;
   --black: #1e1d22;
@@ -9,6 +12,7 @@
   --bg: #37363B;
   /* --grey: ; */
 }
+/* #CE591C */
 /*  #87764f */
 /* text hover #96703F */
 /* bg #37363b */
@@ -43,3 +47,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+

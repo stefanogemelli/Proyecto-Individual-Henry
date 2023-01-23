@@ -15,10 +15,11 @@ function Card({ country }) {
           /> */}
         </Image>
         <h2 className={`${s.country}`}>{country.name}</h2>
+        <hr className={`${s.hr}`} />
         <p className={`${s.continent}`}>{country.continent}</p>
         <svg viewBox="0 0 28 25" className={`${s.svg}`}>
           <path
-            fill="#16127f"
+            fill="#d29022"
             d="M13.145 2.13l1.94-1.867 12.178 12-12.178 12-1.94-1.867 8.931-8.8H.737V10.93h21.339z"
           ></path>
         </svg>
@@ -36,5 +37,5 @@ const Image = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
-  height: 75%;
+  height: 70%;
 `;
