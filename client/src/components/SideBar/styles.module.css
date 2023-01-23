@@ -6,7 +6,7 @@
   height: min-content;
   position: absolute;
   left: 10px;
-  top: 100px;
+  top: 10px;
   display: flex;
   flex-direction: column;
 }

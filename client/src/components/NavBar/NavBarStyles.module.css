@@ -1,18 +1,34 @@
 .nav{
-  border: 3px solid white;
+  border: 2px solid var(--bgMenu);
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  height: 100px;
-  padding-right: 10vw;
-  position: absolute;
+  height: 120px;
   top: 0;
   width: 100%;
   z-index: 10;
+  overflow: hidden;
+  position: relative
+}
+.bg{
+  background-image: url("../../assets/images/bgNav3.png"); 
+  background-size: 100% 400%;
+  background-position: 0% 200%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.capa{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.2);
+  backdrop-filter:  grayscale(5%);
 }
 .ul{
   display: flex;
   justify-content: space-between;
+  z-index: 1000;
 }
 .link{
   color: #151515;
