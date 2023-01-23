@@ -1,0 +1,29 @@
+.container{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.h2{
+  /* border: 1px solid red; */
+  /* color: red; */
+  width: 100%;
+  text-align: start;
+  margin-left: 3px;
+}
+.btn{
+  background-color: var(--bgHover);
+  color: var(--golden);
+  border: 1px solid var(--golden);
+  padding: 3px 7px;
+  transition: all .1s ease-in;
+}
+.btn:hover{
+  transform: scale(1.05);
+}
+.btn:active{
+  transform: scale(1);
+}
+.hr{
+  margin-top: 10px;
+  border-color: var(--brown);
+}

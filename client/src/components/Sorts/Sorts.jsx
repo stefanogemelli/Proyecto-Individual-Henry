@@ -1,12 +1,13 @@
 import { sortCountries } from "../../redux/actions";
 import Select from "./Select/Select";
+import s from "./styles.module.css";
 
 const sortOptions = ["Desactivado", "Ascendente", "Descendente"];
 
 function Sorts() {
   return (
-    <div>
-      <h2>Ordenar por</h2>
+    <div className={s.container}>
+      <h2 className={s.h2}>Ordenar por</h2>
       <label>Nombre</label>
       <Select options={sortOptions} name="name" />
 

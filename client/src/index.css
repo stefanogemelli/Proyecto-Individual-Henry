@@ -1,8 +1,31 @@
+:root{
+  --brown: #87764f;
+  --golden: #d29022;
+  --text: #c0bfc2;
+  --textHover: #96703F;
+  --black: #1e1d22;
+  --bgMenu: #2a292e;
+  --bgHover: #4b4a4f;
+  --bg: #37363B;
+  /* --grey: ; */
+}
+/*  #87764f */
+/* text hover #96703F */
+/* bg #37363b */
+/* bg hover #4b4a4f */
+/* bg menu #2a292e */
+select:focus-visible{
+  outline: none;
+}
+select{
+  background-color: var(--bg);
+}
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   user-select: none;
+  color: var(--text);
   /* overflow: visible !important; */
 }
 body {

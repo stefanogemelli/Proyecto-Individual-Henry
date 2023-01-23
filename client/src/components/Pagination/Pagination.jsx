@@ -43,9 +43,10 @@ function Pagination() {
           </button>
           {buttonIndex.map((i) => (
             <button
+              key={i}
               value={i}
               onClick={handleClick}
-              active={page === i && "active"}
+              // active={page === i && "active"}
             >
               {i}
             </button>

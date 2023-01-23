@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { filterCountries } from "../../redux/actions";
 
-import searchIcon from "../../assets/busqueda.svg";
-import reset from "../../assets/reset.svg";
-import s from "./SearchCountryStyles.module.css";
+import searchIcon from "../../assets/icons/busqueda.svg";
+import reset from "../../assets/icons/reset.svg";
+import s from "./styles.module.css";
 
 function SearchCountry() {
   const [countryName, setCountryName] = useState("");
@@ -23,7 +23,7 @@ function SearchCountry() {
   return (
     <>
       <form onSubmit={searchCountries} className={`${s.searchContainer}`}>
-        <h2>Busqueda</h2>
+        <h2 className={s.h2}>Busqueda</h2>
         <input
           onChange={handleChange}
           type="text"
@@ -31,14 +31,15 @@ function SearchCountry() {
           className={`${s.input}`}
         />
         <div className={`${s.buttonsContainer}`}>
-          <button type="submit" className={`${s.buttonSearch}`}>
+          <button type="submit" className={`${s.btn}`}>
             <img src={searchIcon} alt="search" className={s.icon} />
           </button>
-          <button type="button" onClick={showAll} className={`${s.button}`}>
+          <button type="button" onClick={showAll} className={`${s.btn}`}>
             <img src={reset} alt="search" className={s.icon} />
           </button>
         </div>
       </form>
+      <hr className={s.hr} />
     </>
   );
 }

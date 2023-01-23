@@ -30,7 +30,9 @@ function FilterSelect({ options, name }) {
       value={localValue}
     >
       {options.map((c) => (
-        <option value={c}>{c}</option>
+        <option key={c} value={c}>
+          {c}
+        </option>
       ))}
     </select>
   );

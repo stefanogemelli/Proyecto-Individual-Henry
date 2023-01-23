@@ -1,0 +1,12 @@
+.container {
+  padding: 2rem;
+  border: 1px solid var(--brown);
+  background-color: var(--bgMenu);
+  width: 250px;
+  height: min-content;
+  position: absolute;
+  left: 10px;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+}

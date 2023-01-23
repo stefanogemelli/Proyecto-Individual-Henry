@@ -1,0 +1,11 @@
+.container{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.h2{
+  width: 100%;
+  text-align: start;
+  margin-left: 3px;
+}

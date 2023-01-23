@@ -1,0 +1,43 @@
+.searchContainer{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+}
+.input , .button{
+  font-size: 1.2rem;
+  margin: 0 2px 2px ;
+  height: 1.4rem;
+}
+.input{
+  width: 70%;
+  background-color: var(--bg);
+  color: var(--golden);
+}
+.h2{
+  margin-left: 5px;
+}
+.btn{
+  margin-left: 3px;
+  height: 1.4rem;
+  background-color: transparent;
+  border: none;
+  transition: all .1s ease;
+}
+.btn:hover {
+  transform: scale(1.1);
+}
+.btn:active {
+  transform: scale(1);
+}
+/* .btnActive{
+
+} */
+.icon{
+height: 100%;
+
+}
+.hr{
+  margin-top: 10px;
+  border-color: var(--brown);
+}

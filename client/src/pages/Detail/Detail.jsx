@@ -1,6 +1,10 @@
+import ChartDetail from "../../components/ChartDetail/ChartDetail";
+import DescriptionDetail from "../../components/DescriptionDetail/DescriptionDetail";
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Container, Background, Capa } from "./StyledComponents";
+
+import s from "./styles.module.css";
 
 function Detail() {
   const { idCountry } = useParams();
@@ -17,11 +21,10 @@ function Detail() {
   console.log(country);
   return (
     <>
-      <Container>
-        <Background continent={country.continent}></Background>
-        <Capa></Capa>
-        {/* flata renderizar country nomas */}
-      </Container>
+      <div className={s.container}>
+        <div className={s.bg} continent={country.continent}></div>
+        <div className={s.capa}></div>
+      </div>
     </>
   );
 }

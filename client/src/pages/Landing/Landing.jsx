@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import s from "./LandingStyles.module.css";
-import BGLanding from "../../assets/BGLanding.mp4";
+import BGLanding from "../../assets/videos/BGGolden.mp4";
 
 function Landing() {
   const handleClick = () => {};
@@ -20,7 +20,8 @@ function Landing() {
         <video className={`${s.video}`} autoPlay loop muted>
           <source src={BGLanding} type="video/mp4" />
         </video>
-        <div className={`${s.capa}`}></div>
+        <div className={`${s.capa1}`}></div>
+        {/* <div className={`${s.capa2}`}></div> */}
       </section>
     </>
   );

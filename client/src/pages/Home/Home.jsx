@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../../redux/actions";
 
-import SearchCountry from "../../components/SearchCountry/SearchCountry";
 import SideBar from "../../components/SideBar/SideBar";
 import Pagination from "../../components/Pagination/Pagination";
 
@@ -18,8 +17,8 @@ function Home() {
   return (
     <section className={`${s.container}`}>
       <div className={`${s.background}`}></div>
-      <div className={`${s.capa}`}></div>
-      {/* <SearchCountry /> */}
+      {/* <div className={`${s.capa}`}></div> */}
+
       <SideBar />
 
       <Pagination />
