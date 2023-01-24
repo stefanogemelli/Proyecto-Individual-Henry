@@ -1,4 +1,5 @@
 export const GET_ALL_COUNTRIES_API = "GET_ALL_COUNTRIES_API";
+export const GET_COUNTRIES_API_BY_NAME = "GET_COUNTRIES_API_BY_NAME";
 export const FILTER_COUNTRIES = "FILTER";
 export const SORT_COUNTRIES = "SORT_COUNTRIES";
 export const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
@@ -10,6 +11,21 @@ export const getAllCountriesApi = () => async (dispatch) => {
     );
     return dispatch({
       type: GET_ALL_COUNTRIES_API,
+      payload: data,
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+//http://localhost:3001/countries?name=argen
+export const getCountriesFromApiByName = (name) => async (dispatch) => {
+  try {
+    const data = await fetch(
+      `http://localhost:3001/countries?name=${name}`
+    ).then((data) => data.json());
+    return dispatch({
+      type: GET_COUNTRIES_API_BY_NAME,
       payload: data,
     });
   } catch (error) {

@@ -3,6 +3,7 @@ import {
   FILTER_COUNTRIES,
   SORT_COUNTRIES,
   SET_CURRENT_PAGE,
+  GET_COUNTRIES_API_BY_NAME,
 } from "./actions"; // FILTER_BY_NAME
 
 const initialState = {
@@ -18,7 +19,6 @@ const initialState = {
 export const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case GET_ALL_COUNTRIES_API:
-      console.log(payload);
       const countriesKeyName = {};
       payload.forEach((country) => {
         countriesKeyName[country.id] = country.name;
@@ -28,6 +28,17 @@ export const rootReducer = (state = initialState, { type, payload }) => {
         allCountries: [...payload],
         filteredCountries: [...payload],
         countriesKeysNames: { ...countriesKeyName },
+        currentPage: 1,
+      };
+    case GET_COUNTRIES_API_BY_NAME: // => => => FALTA VOLVER A APLICAR FIILTROS importante!
+      const newAllCountries = payload;
+      const newFCountries = payload;
+      const filters = Object.keys(state.filters);
+      return {
+        ...state,
+        allCountries: [...payload],
+        filteredCountries: [...payload],
+        currentPage: 1,
       };
     case FILTER_COUNTRIES: //payload = {filter:"name /continent /activity",value:"value"}
       // leer si existe el filtro entrante, caso true => aplicar todos sobre allCountries nuevamente
@@ -64,6 +75,7 @@ export const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         filteredCountries: newFilteredCountries,
         filters: { ...stateFilters },
+        currentPage: 1,
       };
 
     //SORT_COUNTRIES
@@ -112,3 +124,5 @@ export const rootReducer = (state = initialState, { type, payload }) => {
       return { ...state };
   }
 };
+
+function filterApply() {}
