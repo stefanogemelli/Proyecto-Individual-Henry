@@ -3,11 +3,6 @@ import { useSelector } from "react-redux";
 function SelectIdCountries({ idCountries, setIdCountries }) {
   const allCountries = useSelector((state) => state.allCountries);
 
-  // const [countryName, setCountryName] = useState("");
-  // const handleClickOption = (e) => {
-  //   setCountryName()
-  // }
-
   const handleSelect = (e) => {
     const newId = e.target.value;
     const idFinded = idCountries.find((id) => id === newId);

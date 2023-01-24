@@ -7,7 +7,7 @@ function ShowCountries({ idCountries }) {
   return (
     <div>
       {countryNames.map((name) => (
-        <p>{name}</p>
+        <p key={name}>{name}</p>
       ))}
     </div>
   );

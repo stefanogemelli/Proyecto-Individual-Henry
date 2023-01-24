@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createActivity } from "../../services/createActivity";
+import formValidate from "../../services/formValidate";
 
 import s from "./FormStyles.module.css";
 import SelectIdCountries from "./SelectIdCountries/SelectIdCountries";
@@ -13,15 +14,27 @@ function Form() {
     season: "",
   });
   const [idCountries, setIdCountries] = useState([]);
+  const [errors, setErrors] = useState({
+    name: "",
+    dificult: "",
+    duration: "",
+    season: "",
+    idCountries: [],
+  });
 
   const handleChange = (e) => {
-    setInputs({ ...inputs, [e.target.name]: e.target.value });
+    let [name, value] = [e.target.name, e.target.value];
+    console.log(name);
+    console.log(value);
+    setInputs({ ...inputs, [name]: value });
+    setErrors({ ...errors, [name]: formValidate(name, value) }); // formValidate => value
   };
-
+  console.log(errors);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = createActivity({ ...inputs, idCountries });
+    const data = await createActivity({ ...inputs, idCountries });
     // MOSTRAR VENTANA EMERGENTE CON MENSAJE DE CONFIRMACION
+    console.log(data);
     setInputs({
       name: "",
       dificult: "",
@@ -32,9 +45,10 @@ function Form() {
   };
   return (
     <>
-      <form action="" onSubmit={handleSubmit} className={`${s.form}`}>
+      {/* <ConfirmationModal />  */}
+      <form onSubmit={handleSubmit} className={`${s.form}`}>
         <label className={`${s.label}`}>
-          Ingresar los datos para la creacion de la nueva actividad
+          Datos para la creación de la actividad
         </label>
         <input
           onChange={handleChange}
@@ -43,6 +57,10 @@ function Form() {
           name="name"
           value={inputs.name}
         />
+        <span className={`${s.spanError} ${errors.name && s.errorVisible}`}>
+          El nombre solo puede tener entre 4 y 20 letras*
+        </span>
+
         <input
           onChange={handleChange}
           className={`${s.input}`}
@@ -50,6 +68,9 @@ function Form() {
           name="dificult"
           value={inputs.dificult}
         />
+        <span className={`${s.spanError} ${errors.dificult && s.errorVisible}`}>
+          Ingresar dificultad entre 1 y 5*
+        </span>
         <input
           onChange={handleChange}
           className={`${s.input}`}
@@ -57,18 +78,37 @@ function Form() {
           name="duration"
           value={inputs.duration}
         />
-        <input
+        <span className={`${s.spanError} ${errors.duration && s.errorVisible}`}>
+          La duración no puede exceder las 12hs*
+        </span>
+
+        <select
+          className={s.seasonSelect}
           onChange={handleChange}
-          className={`${s.input}`}
-          type="text"
-          name="season"
           value={inputs.season}
-        />
+          name="season"
+        >
+          <option hidden>Seleccionar temporada</option>
+          <option value="Invierno">Invierno</option>
+          <option value="Primavera">Primavera</option>
+          <option value="Verano">Verano</option>
+          <option value="Otoño">Otoño</option>
+        </select>
+        <span className={`${s.spanError} ${errors.season && s.errorVisible}`}>
+          {errors.season}
+        </span>
         <SelectIdCountries
           idCountries={idCountries}
           setIdCountries={setIdCountries}
         />
-        <button type="submit">Crear Actividad</button>
+        <span
+          className={`${s.spanError} ${errors.idCountries && s.errorVisible}`}
+        >
+          {errors.idCountries}
+        </span>
+        <button type="submit" className={s.btn}>
+          Crear Actividad
+        </button>
       </form>
       <ShowCountries idCountries={idCountries} />
     </>

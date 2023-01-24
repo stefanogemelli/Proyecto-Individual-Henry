@@ -8,8 +8,8 @@ import {
 const initialState = {
   // ...
   allCountries: [],
-  countriesKeysNames: {},
   filteredCountries: [],
+  countriesKeysNames: {},
   filters: {}, // { name:"on"}
   sorts: {}, // {type:value}
   currentPage: 1,
@@ -18,6 +18,7 @@ const initialState = {
 export const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case GET_ALL_COUNTRIES_API:
+      console.log(payload);
       const countriesKeyName = {};
       payload.forEach((country) => {
         countriesKeyName[country.id] = country.name;
