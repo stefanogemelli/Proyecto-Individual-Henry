@@ -18,7 +18,9 @@ function Pagination() {
   const dispatch = useDispatch();
   const [page, setPage] = useState(currentPage);
 
-  useEffect(() => dispatch(setCurrentPage(page)), [page]);
+  useEffect(() => {
+    currentPage != page && setPage(currentPage);
+  }, [currentPage]);
 
   // allCountries = 10
   const amount = 9;
@@ -33,19 +35,20 @@ function Pagination() {
   const handleLR = (value) => {
     switch (value) {
       case "LL":
-        page > 1 && setPage(1);
+        page > 1 && dispatch(setCurrentPage(1));
+
         break;
       case "L":
-        page > 1 && setPage(page - 1);
+        page > 1 && dispatch(setCurrentPage(page - 1));
         break;
       case "R":
-        page < totalPages && setPage(page + 1);
+        page < totalPages && dispatch(setCurrentPage(page + 1));
         break;
       case "RR":
-        page < totalPages && setPage(totalPages);
+        page < totalPages && dispatch(setCurrentPage(totalPages));
         break;
       default:
-        setPage(value);
+        dispatch(setCurrentPage(value));
     }
   };
 
