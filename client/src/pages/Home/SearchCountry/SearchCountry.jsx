@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { filterCountries } from "../../redux/actions";
+import { filterCountries } from "../../../redux/actions";
 
-import searchIcon from "../../assets/icons/busqueda.svg";
-import reset from "../../assets/icons/reset.svg";
+import searchIcon from "../../../assets/icons/busqueda.svg";
+import reset from "../../../assets/icons/reset.svg";
 import s from "./styles.module.css";
 
 function SearchCountry() {

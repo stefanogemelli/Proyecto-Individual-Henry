@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { sortCountries } from "../../../redux/actions";
+import { sortCountries } from "../../../../redux/actions";
 
 import s from "./SelectStyles.module.css";
 

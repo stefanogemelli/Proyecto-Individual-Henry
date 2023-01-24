@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCountriesApi } from "../../redux/actions";
 
-import SideBar from "../../components/SideBar/SideBar";
-import Pagination from "../../components/Pagination/Pagination";
+import SideBar from "./SideBar/SideBar";
+import Pagination from "./Pagination/Pagination";
 
 import s from "./HomeStyles.module.css";
 

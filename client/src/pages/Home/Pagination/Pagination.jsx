@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setCurrentPage } from "../../redux/actions";
+import { setCurrentPage } from "../../../redux/actions";
 
 import Card from "../Card/Card";
 import ArrowDRight from "./Arrows/ArrowDRight";
@@ -30,14 +30,22 @@ function Pagination() {
     page * amount // pag2 =>  [18]
   ); // slice(0,9)
 
-  const handleClick = (e) => {
-    setPage(e.target.value);
-  };
-  const handleLR = (e) => {
-    if (e.target.value === "L") {
-      page > 1 && setPage(page - 1);
-    } else {
-      page < totalPages && setPage(page + 1);
+  const handleLR = (value) => {
+    switch (value) {
+      case "LL":
+        page > 1 && setPage(1);
+        break;
+      case "L":
+        page > 1 && setPage(page - 1);
+        break;
+      case "R":
+        page < totalPages && setPage(page + 1);
+        break;
+      case "RR":
+        page < totalPages && setPage(totalPages);
+        break;
+      default:
+        setPage(value);
     }
   };
 
@@ -50,26 +58,25 @@ function Pagination() {
     <>
       <div>
         <div className={`${s.buttons}`}>
-          <button onClick={handleLR} value="L" className={s.btnArrow}>
+          <button onClick={() => handleLR("LL")} className={s.btnArrow}>
             <ArrowDLeft />
           </button>
-          <button onClick={handleLR} value="L" className={s.btnArrow}>
+          <button onClick={() => handleLR("L")} className={s.btnArrow}>
             <ArrowLeft />
           </button>
           {buttonIndex.map((i) => (
             <button
               key={i}
-              value={i}
-              onClick={handleClick}
+              onClick={() => handleLR(i)}
               className={`${s.btn} ${page == i && s.active}`}
             >
               {i}
             </button>
           ))}
-          <button onClick={handleLR} value="R" className={s.btnArrow}>
+          <button onClick={() => handleLR("R")} className={s.btnArrow}>
             <ArrowRight />
           </button>
-          <button onClick={handleLR} value="R" className={s.btnArrow}>
+          <button onClick={() => handleLR("RR")} className={s.btnArrow}>
             <ArrowDRight />
           </button>
         </div>

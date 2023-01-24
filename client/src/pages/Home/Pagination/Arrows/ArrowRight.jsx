@@ -4,7 +4,7 @@ function ArrowRight({ color = "#fff" }) {
       fill={color}
       width="30px"
       height="30px"
-      viewBox="-12 0 32 32"
+      viewBox="-8 8 34 34"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
     >
