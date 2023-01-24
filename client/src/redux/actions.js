@@ -18,7 +18,6 @@ export const getAllCountriesApi = () => async (dispatch) => {
   }
 };
 
-//http://localhost:3001/countries?name=argen
 export const getCountriesFromApiByName = (name) => async (dispatch) => {
   try {
     const data = await fetch(
@@ -29,7 +28,7 @@ export const getCountriesFromApiByName = (name) => async (dispatch) => {
       payload: data,
     });
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
   }
 };
 

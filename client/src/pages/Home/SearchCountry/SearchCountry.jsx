@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { filterCountries } from "../../../redux/actions";
+// import { filterCountries } from "../../../redux/actions";
+import {
+  getCountriesFromApiByName,
+  getAllCountriesApi,
+} from "../../../redux/actions";
 
 import searchIcon from "../../../assets/icons/busqueda.svg";
 import reset from "../../../assets/icons/reset.svg";
@@ -11,13 +15,13 @@ function SearchCountry() {
   const dispatch = useDispatch();
   const searchCountries = (e) => {
     e.preventDefault();
-    dispatch(filterCountries({ filter: "name", value: countryName }));
+    dispatch(getCountriesFromApiByName(countryName));
   };
   const handleChange = (e) => {
     setCountryName(e.target.value);
   };
   const showAll = () => {
-    dispatch(filterCountries({ filter: "name", value: "" }));
+    getAllCountriesApi();
     setCountryName("");
   };
   return (

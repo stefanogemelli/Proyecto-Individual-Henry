@@ -32,53 +32,31 @@ export const rootReducer = (state = initialState, { type, payload }) => {
       };
     case GET_COUNTRIES_API_BY_NAME: // => => => FALTA VOLVER A APLICAR FIILTROS importante!
       const newAllCountries = payload;
-      const newFCountries = payload;
-      const filters = Object.keys(state.filters);
+      let newFCountries = filterApply(payload, { ...state.filters });
+
       return {
         ...state,
-        allCountries: [...payload],
-        filteredCountries: [...payload],
+        allCountries: newAllCountries,
+        filteredCountries: newFCountries,
         currentPage: 1,
       };
     case FILTER_COUNTRIES: //payload = {filter:"name /continent /activity",value:"value"}
-      // leer si existe el filtro entrante, caso true => aplicar todos sobre allCountries nuevamente
-      //    caso false => aplicar filtro entrante sobre filteredCountries
       let newFilteredCountries = [...state.allCountries];
-      const stateFilters = { ...state.filters };
+      const filtersToApply = { ...state.filters };
       const { filter, value } = payload;
       if (value === "") {
-        delete stateFilters[filter];
+        delete filtersToApply[filter];
       } else {
-        stateFilters[filter] = value; //{continent:"on",}
+        filtersToApply[filter] = value; //{continent:"on",}
       }
-      // const filtersToApply = Object.keys(stateFilters);
-      if (!!stateFilters.name) {
-        newFilteredCountries = newFilteredCountries.filter((c) =>
-          c.name.toLowerCase().includes(stateFilters.name.toLowerCase())
-        );
-      }
-      if (!!stateFilters.continent) {
-        newFilteredCountries = newFilteredCountries.filter(
-          (c) => c.continent === stateFilters.continent
-        );
-      }
-      if (!!stateFilters.activities) {
-        console.log("entre a activities");
-        newFilteredCountries = newFilteredCountries.filter((c) => {
-          for (const a of c.activities) {
-            if (a.name === stateFilters.activities) return true;
-          }
-          return false;
-        });
-      }
+      newFilteredCountries = filterApply(newFilteredCountries, filtersToApply);
       return {
         ...state,
         filteredCountries: newFilteredCountries,
-        filters: { ...stateFilters },
+        filters: { ...filtersToApply },
         currentPage: 1,
       };
 
-    //SORT_COUNTRIES
     case SORT_COUNTRIES: //payload = {sort:"name /population",value:"ascendent"}
       return {
         ...state,
@@ -125,4 +103,26 @@ export const rootReducer = (state = initialState, { type, payload }) => {
   }
 };
 
-function filterApply() {}
+function filterApply(countries, filtersToApply) {
+  let filteredCountries = countries;
+  if (!!filtersToApply.name) {
+    filteredCountries = filteredCountries.filter((c) =>
+      c.name.toLowerCase().includes(filtersToApply.name.toLowerCase())
+    );
+  }
+  if (!!filtersToApply.continent) {
+    filteredCountries = filteredCountries.filter(
+      (c) => c.continent === filtersToApply.continent
+    );
+  }
+  if (!!filtersToApply.activities) {
+    filteredCountries = filteredCountries.filter((c) => {
+      for (const a of c.activities) {
+        if (a.name === filtersToApply.activities) return true;
+      }
+      return false;
+    });
+  }
+  console.log("resultado de filterApply", filteredCountries);
+  return filteredCountries;
+}
