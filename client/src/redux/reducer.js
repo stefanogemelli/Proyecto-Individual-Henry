@@ -10,7 +10,7 @@ const initialState = {
   allCountries: [],
   countriesKeysNames: {},
   filteredCountries: [],
-  filters: {}, // {type:value}
+  filters: {}, // { name:"on"}
   sorts: {}, // {type:value}
   currentPage: 1,
 };
@@ -37,7 +37,7 @@ export const rootReducer = (state = initialState, { type, payload }) => {
       if (value === "") {
         delete stateFilters[filter];
       } else {
-        stateFilters[filter] = value;
+        stateFilters[filter] = value; //{continent:"on",}
       }
       // const filtersToApply = Object.keys(stateFilters);
       if (!!stateFilters.name) {

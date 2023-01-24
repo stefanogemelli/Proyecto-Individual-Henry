@@ -1,0 +1,29 @@
+.container{
+  /* border: 2px solid red; */
+  padding: 10px 40px;
+  /* min-height: 80vh; */
+  max-width: 1500px;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+.hr{
+  width: 100%;
+}
+/* 
+.h2{
+  margin-left: 10px;
+} */
+.cardsContainer{
+  /* border: 1px solid white; */
+  width: 100%;
+  /* display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-auto-rows: 140px;
+  gap: 5px; */
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-items: center; */
+}

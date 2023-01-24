@@ -1,0 +1,35 @@
+.container{
+  /* border: 2px solid red; */
+  padding: 25px;
+  /* min-height: 80vh; */
+  max-width: 1500px;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+.title{
+  font-size: 2.5rem;
+  margin-left: 20px;
+}
+.name{
+  font-size: 2rem;
+  margin-top: 20px;
+  margin-left: 20px;
+  color: var(--textHover)
+}
+.img{
+  width: 25%;
+  align-self: flex-end;
+  position: absolute;
+  right: 40px;
+  top: 40px;
+}
+.info{
+  /* border: 2px solid white; */
+  width: 70%;
+  text-align: start;
+  display: flex;
+  justify-content: space-between;
+}

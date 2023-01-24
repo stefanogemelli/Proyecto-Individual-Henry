@@ -1,5 +1,5 @@
-import ChartDetail from "../../components/ChartDetail/ChartDetail";
-import DescriptionDetail from "../../components/DescriptionDetail/DescriptionDetail";
+import CountryDetailChart from "../../components/CountryDetailChart/CountryDetailChart";
+import CountryDetailActivities from "../../components/CountryDetailActivities/CountryDetailActivities";
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -20,12 +20,36 @@ function Detail() {
     return setCountry({});
   }, [idCountry]);
   console.log(country);
+  const {
+    id,
+    area,
+    capital,
+    continent,
+    flagImg,
+    name,
+    population,
+    subregion,
+    activities,
+  } = country;
   return (
     <>
       <div className={s.container}>
-        <h1>HOLA</h1>
         <div className={s.bg} continent={country.continent}></div>
-        <div className={s.capa}></div>
+        {/* <div className={s.capa}></div> */}
+        <CountryDetailChart
+          props={{
+            id,
+            area,
+            capital,
+            continent,
+            flagImg,
+            name,
+            population,
+            subregion,
+          }}
+        />
+
+        <CountryDetailActivities activities={activities} name={name} />
       </div>
     </>
   );

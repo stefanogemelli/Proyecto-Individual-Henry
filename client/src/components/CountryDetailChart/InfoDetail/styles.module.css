@@ -1,0 +1,16 @@
+.detailBox{
+  margin-top: 40px;
+  /* border: 1px solid red; */
+  padding: 20px;
+  /* margin-left: 10px; */
+}
+.h2{
+  margin-bottom: 5px;
+  color: var(--textHover);
+}
+.hr{
+  width: 104%;
+  transform: translateX(-2%);
+  border-color: var(--textHover);
+}
+/* .p{} */
