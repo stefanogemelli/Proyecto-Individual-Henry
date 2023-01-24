@@ -17,7 +17,7 @@ activitiesRouter.post("/", async (req, res) => {
       idCountries
     );
     res.status(201).json({
-      status: "La actividad fue creada correctamente",
+      message: "La actividad fue creada correctamente",
       activity: newActivity,
     });
   } catch (error) {
