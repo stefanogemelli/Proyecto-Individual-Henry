@@ -2,11 +2,16 @@ import { useState } from "react";
 import { createActivity } from "../../services/createActivity";
 import formValidate from "../../services/formValidate";
 
+import Input from "./Input/Input";
+
 import s from "./FormStyles.module.css";
 import SelectIdCountries from "./SelectIdCountries/SelectIdCountries";
-import ShowCountries from "./ShowCountries/ShowCountries";
+import ShowCountries from "../ShowCountries/ShowCountries";
+import SelectSeason from "./SelectSeason/SelectSeason";
+import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 
 function Form() {
+  const [infoModal, setInfoModal] = useState({});
   const [inputs, setInputs] = useState({
     name: "",
     dificult: "",
@@ -24,17 +29,13 @@ function Form() {
 
   const handleChange = (e) => {
     let [name, value] = [e.target.name, e.target.value];
-    console.log(name);
-    console.log(value);
     setInputs({ ...inputs, [name]: value });
-    setErrors({ ...errors, [name]: formValidate(name, value) }); // formValidate => value
+    setErrors({ ...errors, [name]: formValidate(name, value) });
   };
-  console.log(errors);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await createActivity({ ...inputs, idCountries });
-    // MOSTRAR VENTANA EMERGENTE CON MENSAJE DE CONFIRMACION
-    console.log(data);
+    setInfoModal(data);
     setInputs({
       name: "",
       dificult: "",
@@ -45,58 +46,40 @@ function Form() {
   };
   return (
     <>
-      {/* <ConfirmationModal />  */}
+      <ConfirmationModal infoModal={infoModal} setInfoModal={setInfoModal} />
+
       <form onSubmit={handleSubmit} className={`${s.form}`}>
         <label className={`${s.label}`}>
           Datos para la creación de la actividad
         </label>
-        <input
-          onChange={handleChange}
-          className={`${s.input}`}
-          type="text"
-          name="name"
+        <Input
+          handleChange={handleChange}
           value={inputs.name}
-        />
-        <span className={`${s.spanError} ${errors.name && s.errorVisible}`}>
-          El nombre solo puede tener entre 4 y 20 letras*
-        </span>
-
-        <input
-          onChange={handleChange}
-          className={`${s.input}`}
+          name="name"
           type="text"
-          name="dificult"
+          error={errors.name}
+        />
+        <Input
+          handleChange={handleChange}
           value={inputs.dificult}
+          name="dificult"
+          type="number"
+          error={errors.dificult}
         />
-        <span className={`${s.spanError} ${errors.dificult && s.errorVisible}`}>
-          Ingresar dificultad entre 1 y 5*
-        </span>
-        <input
-          onChange={handleChange}
-          className={`${s.input}`}
-          type="text"
-          name="duration"
+        <Input
+          handleChange={handleChange}
           value={inputs.duration}
+          name="duration"
+          type="text"
+          error={errors.duration}
         />
-        <span className={`${s.spanError} ${errors.duration && s.errorVisible}`}>
-          La duración no puede exceder las 12hs*
-        </span>
 
-        <select
-          className={s.seasonSelect}
-          onChange={handleChange}
+        <SelectSeason
+          handleChange={handleChange}
           value={inputs.season}
           name="season"
-        >
-          <option hidden>Seleccionar temporada</option>
-          <option value="Invierno">Invierno</option>
-          <option value="Primavera">Primavera</option>
-          <option value="Verano">Verano</option>
-          <option value="Otoño">Otoño</option>
-        </select>
-        <span className={`${s.spanError} ${errors.season && s.errorVisible}`}>
-          {errors.season}
-        </span>
+          error={errors.season}
+        />
         <SelectIdCountries
           idCountries={idCountries}
           setIdCountries={setIdCountries}

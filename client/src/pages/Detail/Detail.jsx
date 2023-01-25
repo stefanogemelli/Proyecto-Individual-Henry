@@ -19,7 +19,7 @@ function Detail() {
       });
     return setCountry({});
   }, [idCountry]);
-  console.log(country);
+
   const {
     id,
     area,

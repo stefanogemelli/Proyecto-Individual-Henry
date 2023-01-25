@@ -49,7 +49,7 @@ const getCountriesFromApi = async () => {
 
 const getCountries = async () => {
   const listCountries = await Country.findAll({
-    attributes: ["id", "name", "continent", "flagImg"],
+    attributes: ["id", "name", "continent", "flagImg", "population"],
     include: [
       {
         model: Activity,

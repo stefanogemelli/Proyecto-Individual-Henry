@@ -3,7 +3,7 @@
 // duration:
 // season:
 //idCountries: [] => minLength = 1
-const nameRegex = /^[a-zA-Z]{4,20}$/;
+const nameRegex = /^[a-zA-Z\s]{4,30}$/;
 export default function formValidate(key, value) {
   let err = "";
   if (value === "") return err;
@@ -11,7 +11,7 @@ export default function formValidate(key, value) {
   if (key === "name") {
     err = nameRegex.test(value)
       ? ""
-      : "El nombre solo puede tener entre 4 y 20 letras";
+      : "El nombre debe tener entre 4 y 30 letras";
   } else if (key === "dificult") {
     err = value >= 1 && value <= 5 ? "" : "Ingresar dificultad entre 1 y 5";
   } else if (key === "duration") {

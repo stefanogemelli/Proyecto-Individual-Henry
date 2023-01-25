@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
 
+import s from "./selectc.module.css";
+
 function SelectIdCountries({ idCountries, setIdCountries }) {
   const allCountries = useSelector((state) => state.allCountries);
 
@@ -14,7 +16,7 @@ function SelectIdCountries({ idCountries, setIdCountries }) {
   };
 
   return (
-    <select onChange={handleSelect}>
+    <select onChange={handleSelect} className={s.select}>
       <option hidden>Seleccionar Paises</option>
       {allCountries?.map((c) => (
         <option key={c.id} value={c.id} name={c.name}>

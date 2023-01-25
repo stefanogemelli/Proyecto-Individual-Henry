@@ -27,6 +27,7 @@ function SearchCountry() {
   const showAll = () => {
     getAllCountriesApi();
     dispatch(setCountrySearch(""));
+    dispatch(getAllCountriesApi());
   };
   return (
     <>

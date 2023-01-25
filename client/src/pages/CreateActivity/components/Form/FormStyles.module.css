@@ -15,7 +15,7 @@
   margin-bottom: 1.5rem;
   color: var(--textHover);
 }
-.input{
+/* .input{
   width: 100%;
   margin: .5rem 0px;
   padding: .5rem;
@@ -34,7 +34,7 @@
 }
 .errorVisible{
   opacity: 1;
-}
+} */
 .btn{
   margin-top: 10px;
   font-size: 1.3rem;

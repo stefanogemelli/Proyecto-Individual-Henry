@@ -26,6 +26,7 @@ export const rootReducer = (state = initialState, { type, payload }) => {
       payload.forEach((country) => {
         countriesKeyName[country.id] = country.name;
       });
+      console.log([payload[0]]);
       return {
         ...state,
         allCountries: [...payload],
