@@ -1,5 +1,9 @@
-import s from "./styles.module.css";
 import FilterSelect from "./FilterSelect/FilterSelect";
+
+import { clearFilters } from "../../../redux/actions";
+
+import s from "./styles.module.css";
+import { useDispatch } from "react-redux";
 
 const continents = [
   "Todos",
@@ -14,6 +18,12 @@ const continents = [
 const seasons = ["Desactivado", "Invierno", "Primavera", "Verano", "Otoño"];
 
 function Filters() {
+  const dispatch = useDispatch();
+
+  const clearFiltersHandler = () => {
+    dispatch(clearFilters());
+  };
+
   return (
     <>
       <div className={s.container}>
@@ -23,7 +33,9 @@ function Filters() {
 
         <label>Actividad</label>
         <FilterSelect options={seasons} name={"activities"} />
-        <button className={s.btn}>Limpiar Filtros</button>
+        <button onClick={clearFiltersHandler} className={s.btn}>
+          Limpiar Filtros
+        </button>
       </div>
       <hr className={s.hr} />
     </>

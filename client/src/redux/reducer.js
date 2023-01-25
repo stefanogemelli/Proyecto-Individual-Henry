@@ -4,6 +4,7 @@ import {
   SORT_COUNTRIES,
   SET_CURRENT_PAGE,
   GET_COUNTRIES_API_BY_NAME,
+  CLEAR_FILTERS,
 } from "./actions"; // FILTER_BY_NAME
 
 const initialState = {
@@ -98,6 +99,13 @@ export const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         currentPage: payload,
       };
+    //CLEAR_FILTERS
+    case CLEAR_FILTERS:
+      return {
+        ...state,
+        filteredCountries: [...state.allCountries],
+        filters: {},
+      };
     default:
       return { ...state };
   }
@@ -123,6 +131,5 @@ function filterApply(countries, filtersToApply) {
       return false;
     });
   }
-  console.log("resultado de filterApply", filteredCountries);
   return filteredCountries;
 }

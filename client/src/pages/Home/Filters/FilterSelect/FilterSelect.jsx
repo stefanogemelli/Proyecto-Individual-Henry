@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { filterCountries } from "../../../../redux/actions";
@@ -9,11 +9,14 @@ function FilterSelect({ options, name }) {
   const globalValue = useSelector((state) => state.filters[name]);
   const [localValue, setLocalValue] = useState(globalValue);
   const dispatch = useDispatch();
+  console.log(globalValue);
+
+  useEffect(() => {
+    !globalValue ? setLocalValue(options[0]) : setLocalValue(globalValue);
+  }, [globalValue]);
 
   const handleChange = (e) => {
     const inpValue = e.target.value;
-    setLocalValue(inpValue);
-
     dispatch(
       filterCountries({
         filter: name,
