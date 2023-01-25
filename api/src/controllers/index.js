@@ -106,10 +106,28 @@ const createActivity = async (
   return newActivity;
 };
 
+const getActivities = async (props) => {
+  // props = [...attributes]    => => => si no especifica attributes en props retorna todo
+  let activitiesList;
+  try {
+    if (props && props.length) {
+      activitiesList = await Activity.findAll({
+        attributes: props,
+      });
+    } else {
+      activitiesList = await Activity.findAll();
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  return activitiesList;
+};
+
 module.exports = {
   getCountriesFromApi,
   getCountries,
   getCountriesByName,
   getCountryById,
   createActivity,
+  getActivities,
 };
