@@ -1,7 +1,5 @@
 import { Switch, Route, useLocation } from "react-router-dom";
 
-import styled from "styled-components";
-
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import CreateActivity from "./pages/CreateActivity/CreateActivity";

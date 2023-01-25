@@ -16,11 +16,6 @@ function Pagination() {
   const currentPage = useSelector((state) => state.currentPage);
 
   const dispatch = useDispatch();
-  const [page, setPage] = useState(currentPage);
-
-  useEffect(() => {
-    currentPage != page && setPage(currentPage);
-  }, [currentPage]);
 
   // allCountries = 10
   const amount = 9;
@@ -28,24 +23,24 @@ function Pagination() {
   const totalPages = Math.ceil(allCountries.length / amount);
 
   const paginatedCountries = allCountries.slice(
-    (page - 1) * amount, // pag2 =>  [9]
-    page * amount // pag2 =>  [18]
+    (currentPage - 1) * amount, // pag2 =>  [9]
+    currentPage * amount // pag2 =>  [18]
   ); // slice(0,9)
 
   const handleLR = (value) => {
     switch (value) {
       case "LL":
-        page > 1 && dispatch(setCurrentPage(1));
+        currentPage > 1 && dispatch(setCurrentPage(1));
 
         break;
       case "L":
-        page > 1 && dispatch(setCurrentPage(page - 1));
+        currentPage > 1 && dispatch(setCurrentPage(currentPage - 1));
         break;
       case "R":
-        page < totalPages && dispatch(setCurrentPage(page + 1));
+        currentPage < totalPages && dispatch(setCurrentPage(currentPage + 1));
         break;
       case "RR":
-        page < totalPages && dispatch(setCurrentPage(totalPages));
+        currentPage < totalPages && dispatch(setCurrentPage(totalPages));
         break;
       default:
         dispatch(setCurrentPage(value));
@@ -71,7 +66,7 @@ function Pagination() {
             <button
               key={i}
               onClick={() => handleLR(i)}
-              className={`${s.btn} ${page == i && s.active}`}
+              className={`${s.btn} ${currentPage == i && s.active}`}
             >
               {i}
             </button>

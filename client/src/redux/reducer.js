@@ -12,8 +12,8 @@ const initialState = {
   allCountries: [],
   filteredCountries: [],
   countriesKeysNames: {},
-  filters: {}, // { name:"on"}
-  sorts: {}, // {type:value}
+  filters: {},
+  sorts: {},
   currentPage: 1,
 };
 
@@ -113,11 +113,6 @@ export const rootReducer = (state = initialState, { type, payload }) => {
 
 function filterApply(countries, filtersToApply) {
   let filteredCountries = countries;
-  if (!!filtersToApply.name) {
-    filteredCountries = filteredCountries.filter((c) =>
-      c.name.toLowerCase().includes(filtersToApply.name.toLowerCase())
-    );
-  }
   if (!!filtersToApply.continent) {
     filteredCountries = filteredCountries.filter(
       (c) => c.continent === filtersToApply.continent
