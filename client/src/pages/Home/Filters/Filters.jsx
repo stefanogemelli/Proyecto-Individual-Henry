@@ -4,6 +4,9 @@ import { clearFilters } from "../../../redux/actions";
 
 import s from "./styles.module.css";
 import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { useEffect } from "react";
+import { getActivityNames } from "../services/getActivityNames";
 
 const continents = [
   "Todos",
@@ -18,7 +21,11 @@ const continents = [
 const seasons = ["Desactivado", "Invierno", "Primavera", "Verano", "Otoño"];
 
 function Filters() {
+  const [activities, setActivities] = useState([]);
   const dispatch = useDispatch();
+  useEffect(() => {
+    getActivityNames().then((data) => console.log(data));
+  }, []);
 
   const clearFiltersHandler = () => {
     dispatch(clearFilters());

@@ -1,13 +1,11 @@
 const { Router } = require("express");
-const { createActivity, getActivities } = require("../../controllers");
+const { createActivity, getActivityNames } = require("../../controllers");
 
 const activitiesRouter = Router();
 
-activitiesRouter.get("/", async (req, res) => {
-  const { props } = req.body; // props = [...attributes]
-
+activitiesRouter.get("/names", async (req, res) => {
   try {
-    const result = await getActivities(props);
+    const result = await getActivityNames();
     res.status(200).json(result);
   } catch (error) {
     res.status(400).send(error.message);
