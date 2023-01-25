@@ -20,12 +20,14 @@ function Pagination() {
   // allCountries = 10
   const amount = 9;
 
-  const totalPages = Math.ceil(allCountries.length / amount);
+  const totalPages = Math.ceil(allCountries?.length / amount);
 
-  const paginatedCountries = allCountries.slice(
-    (currentPage - 1) * amount, // pag2 =>  [9]
-    currentPage * amount // pag2 =>  [18]
-  ); // slice(0,9)
+  const paginatedCountries = Array.isArray(allCountries)
+    ? allCountries.slice(
+        (currentPage - 1) * amount, // pag2 =>  [9]
+        currentPage * amount // pag2 =>  [18]
+      )
+    : []; // slice(0,9)
 
   const handleLR = (value) => {
     switch (value) {
@@ -62,7 +64,7 @@ function Pagination() {
           <button onClick={() => handleLR("L")} className={s.btnArrow}>
             <ArrowLeft />
           </button>
-          {buttonIndex.map((i) => (
+          {buttonIndex?.map((i) => (
             <button
               key={i}
               onClick={() => handleLR(i)}

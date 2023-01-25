@@ -4,6 +4,7 @@ export const FILTER_COUNTRIES = "FILTER";
 export const SORT_COUNTRIES = "SORT_COUNTRIES";
 export const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 export const CLEAR_FILTERS = "CLEAR_FILTERS";
+export const SET_COUNTRY_SEARCH = "SET_COUNTRY_SEARCH";
 
 export const getAllCountriesApi = () => async (dispatch) => {
   try {
@@ -40,6 +41,12 @@ export const filterCountries = (payload) => {
     payload: payload,
   };
 };
+export const clearFilters = () => {
+  return {
+    type: CLEAR_FILTERS,
+    payload: null,
+  };
+};
 
 export const sortCountries = (payload) => {
   //  payload = {sort:"name /population",value:"ascendent"}
@@ -56,9 +63,10 @@ export const setCurrentPage = (payload) => {
   };
 };
 
-export const clearFilters = () => {
+export const setCountrySearch = (payload) => {
+  console.log("payload", payload);
   return {
-    type: CLEAR_FILTERS,
-    payload: null,
+    type: SET_COUNTRY_SEARCH,
+    payload: payload,
   };
 };

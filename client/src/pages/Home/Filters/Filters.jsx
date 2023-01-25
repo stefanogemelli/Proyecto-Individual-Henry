@@ -18,13 +18,16 @@ const continents = [
   "Europe",
   "Oceania",
 ];
-const seasons = ["Desactivado", "Invierno", "Primavera", "Verano", "Otoño"];
 
 function Filters() {
   const [activities, setActivities] = useState([]);
   const dispatch = useDispatch();
+  console.log("Filters render");
   useEffect(() => {
-    getActivityNames().then((data) => console.log(data));
+    getActivityNames().then((data) => {
+      const arrData = ["Todas", ...data.map((obj) => obj.name)];
+      setActivities(arrData);
+    });
   }, []);
 
   const clearFiltersHandler = () => {
@@ -39,7 +42,7 @@ function Filters() {
         <FilterSelect options={continents} name={"continent"} />
 
         <label>Actividad</label>
-        <FilterSelect options={seasons} name={"activities"} />
+        <FilterSelect options={activities} name={"activities"} />
         <button onClick={clearFiltersHandler} className={s.btn}>
           Limpiar Filtros
         </button>

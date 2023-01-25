@@ -1,4 +1,3 @@
-import { sortCountries } from "../../../redux/actions";
 import Select from "./Select/Select";
 import s from "./styles.module.css";
 

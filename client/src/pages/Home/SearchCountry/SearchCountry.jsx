@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   getCountriesFromApiByName,
   getAllCountriesApi,
+  setCountrySearch,
 } from "../../../redux/actions";
 
 import searchIcon from "../../../assets/icons/busqueda.svg";
@@ -11,18 +12,21 @@ import reset from "../../../assets/icons/reset.svg";
 import s from "./styles.module.css";
 
 function SearchCountry() {
-  const [countryName, setCountryName] = useState("");
+  // const [countryName, setCountryName] = useState("");
+
+  const countrySearch = useSelector((state) => state.countrySearch);
+
   const dispatch = useDispatch();
   const searchCountries = (e) => {
     e.preventDefault();
-    dispatch(getCountriesFromApiByName(countryName));
+    dispatch(getCountriesFromApiByName(countrySearch));
   };
   const handleChange = (e) => {
-    setCountryName(e.target.value);
+    dispatch(setCountrySearch(e.target.value));
   };
   const showAll = () => {
     getAllCountriesApi();
-    setCountryName("");
+    dispatch(setCountrySearch(""));
   };
   return (
     <>
@@ -31,7 +35,7 @@ function SearchCountry() {
         <input
           onChange={handleChange}
           type="text"
-          value={countryName}
+          value={countrySearch}
           className={`${s.input}`}
         />
         <div className={`${s.buttonsContainer}`}>

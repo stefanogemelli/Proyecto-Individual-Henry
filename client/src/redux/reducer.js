@@ -5,19 +5,21 @@ import {
   SET_CURRENT_PAGE,
   GET_COUNTRIES_API_BY_NAME,
   CLEAR_FILTERS,
-} from "./actions"; // FILTER_BY_NAME
+  SET_COUNTRY_SEARCH,
+} from "./actions";
 
 const initialState = {
-  // ...
   allCountries: [],
   filteredCountries: [],
-  countriesKeysNames: {},
+  countriesKeysNames: {}, // buscar mdn set
   filters: {},
   sorts: {},
+  countrySearch: "",
   currentPage: 1,
 };
 
 export const rootReducer = (state = initialState, { type, payload }) => {
+  console.log("reducer");
   switch (type) {
     case GET_ALL_COUNTRIES_API:
       const countriesKeyName = {};
@@ -31,7 +33,7 @@ export const rootReducer = (state = initialState, { type, payload }) => {
         countriesKeysNames: { ...countriesKeyName },
         currentPage: 1,
       };
-    case GET_COUNTRIES_API_BY_NAME: // => => => FALTA VOLVER A APLICAR FIILTROS importante!
+    case GET_COUNTRIES_API_BY_NAME:
       const newAllCountries = payload;
       let newFCountries = filterApply(payload, { ...state.filters });
 
@@ -40,6 +42,12 @@ export const rootReducer = (state = initialState, { type, payload }) => {
         allCountries: newAllCountries,
         filteredCountries: newFCountries,
         currentPage: 1,
+      };
+    case SET_COUNTRY_SEARCH:
+      console.log("aaa", payload);
+      return {
+        ...state,
+        countrySearch: payload,
       };
     case FILTER_COUNTRIES: //payload = {filter:"name /continent /activity",value:"value"}
       let newFilteredCountries = [...state.allCountries];
