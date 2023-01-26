@@ -5,20 +5,23 @@
 }
 .h2{
   /* border: 1px solid red; */
-  /* color: red; */
+  color: var(--textHover);
   width: 100%;
   text-align: start;
   margin-left: 3px;
 }
 .btn{
-  background-color: var(--bgHover);
-  color: var(--golden);
-  border: 1px solid var(--golden);
+  background-color: var(--black);
+  color: var(--textHover);
+  border: 1px solid var(--textHover);
   padding: 3px 7px;
-  transition: all .1s ease-in;
+  transition: all .05s ease-out;
 }
 .btn:hover{
   transform: scale(1.05);
+  background-color: var(--textHover);
+  color: var(--black);
+  border: 1px solid var(--black);
 }
 .btn:active{
   transform: scale(1);

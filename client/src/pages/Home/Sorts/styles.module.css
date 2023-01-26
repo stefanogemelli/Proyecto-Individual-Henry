@@ -8,4 +8,5 @@
   width: 100%;
   text-align: start;
   margin-left: 3px;
+  color: var(--textHover);
 }

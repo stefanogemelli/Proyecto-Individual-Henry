@@ -3,3 +3,7 @@
   margin: .3rem 0;
   width: 85%;
 }
+.select:hover{
+  color: var(--textHover);
+  border-color: var(--textHover);
+}

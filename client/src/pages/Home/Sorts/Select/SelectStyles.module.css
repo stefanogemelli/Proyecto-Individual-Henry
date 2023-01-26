@@ -4,3 +4,7 @@
   width: 85%;
   background-color: var(--bg);
 }
+.select:hover{
+  color: var(--textHover);
+  border-color: var(--textHover);
+}

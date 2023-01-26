@@ -14,8 +14,12 @@
   background-color: var(--bg);
   color: var(--golden);
 }
+.input:focus-visible{
+  outline: none;
+}
 .h2{
   margin-left: 5px;
+  color: var(--textHover);
 }
 .btn{
   cursor: pointer;
