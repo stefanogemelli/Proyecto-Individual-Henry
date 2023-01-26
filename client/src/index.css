@@ -1,19 +1,18 @@
 :root{
   --brown: #87764f;
-  --golden: #d29022;
+  --btnHover: #d29022;
   /* --golden: #B98A4C; */
   --light: #a3a3a3;
   --shadow: #1d1d1d;
   --text: #c0bfc2;
   --textHover: #96703F;
   --black: #1e1d22;
-  --bgMenu: #2a292e;
-  --bgHover: #4b4a4f;
-  --bg: #37363B;
-  /* --grey: ; */
+  --bgMenu: #101015c0;
+  --bgHover: #0d0c0fe3;
+  --bg: #37363b;
+
 }
-/* #CE591C */
-/*  #87764f */
+
 /* text hover #96703F */
 /* bg #37363b */
 /* bg hover #4b4a4f */
@@ -23,6 +22,7 @@ select:focus-visible{
 }
 select{
   background-color: var(--bg);
+  cursor: pointer;
 }
 *{
   box-sizing: border-box;

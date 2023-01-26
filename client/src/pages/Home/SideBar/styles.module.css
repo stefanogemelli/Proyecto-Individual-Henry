@@ -2,6 +2,7 @@
   padding: 2rem;
   border: 1px solid var(--brown);
   background-color: var(--bgMenu);
+  backdrop-filter: blur(3px);
   width: 250px;
   height: min-content;
   position: absolute;

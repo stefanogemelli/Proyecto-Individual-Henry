@@ -22,7 +22,7 @@ const continents = [
 function Filters() {
   const [activities, setActivities] = useState([]);
   const dispatch = useDispatch();
-  console.log("Filters render");
+
   useEffect(() => {
     getActivityNames().then((data) => {
       const arrData = ["Todas", ...data.map((obj) => obj.name)];

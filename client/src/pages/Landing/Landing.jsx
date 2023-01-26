@@ -8,9 +8,11 @@ function Landing() {
   return (
     <>
       <section className={`${s.container}`}>
-        <h1 className={`${s.h1}`}>Proyecto Individual Countries</h1>
+        <h1 className={`${s.h1} ${s.slideH1}`}>
+          Proyecto Individual Countries
+        </h1>
         <Link to="/home">
-          <button className={`${s.button}`} onClick={handleClick}>
+          <button className={`${s.button} ${s.slideBtn}`} onClick={handleClick}>
             <span className={`${s.span_text}`}>
               Comenzar
               <span className={`${s.button_bg1}`}></span>

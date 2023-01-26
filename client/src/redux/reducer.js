@@ -19,14 +19,12 @@ const initialState = {
 };
 
 export const rootReducer = (state = initialState, { type, payload }) => {
-  console.log("reducer");
   switch (type) {
     case GET_ALL_COUNTRIES_API:
       const countriesKeyName = {};
       payload.forEach((country) => {
         countriesKeyName[country.id] = country.name;
       });
-      console.log([payload[0]]);
       return {
         ...state,
         allCountries: [...payload],

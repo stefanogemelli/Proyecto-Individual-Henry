@@ -12,8 +12,6 @@ import reset from "../../../assets/icons/reset.svg";
 import s from "./styles.module.css";
 
 function SearchCountry() {
-  // const [countryName, setCountryName] = useState("");
-
   const countrySearch = useSelector((state) => state.countrySearch);
 
   const dispatch = useDispatch();
@@ -43,6 +41,7 @@ function SearchCountry() {
           <button type="submit" className={`${s.btn}`}>
             <img src={searchIcon} alt="search" className={s.icon} />
           </button>
+
           <button type="button" onClick={showAll} className={`${s.btn}`}>
             <img src={reset} alt="search" className={s.icon} />
           </button>
