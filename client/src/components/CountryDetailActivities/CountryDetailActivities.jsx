@@ -3,7 +3,6 @@ import ActivityCard from "../ActivityCard/ActivityCard";
 import s from "./styles.module.css";
 
 function CountryDetailActivities({ activities, name }) {
-  console.log(activities);
   return (
     <div className={s.container}>
       <h2 className={s.h2}>{`Actividades de ${name}`}</h2>
@@ -12,7 +11,7 @@ function CountryDetailActivities({ activities, name }) {
         {/* aca va un loader */}
 
         {activities?.map((activity) => (
-          <ActivityCard activity={activity} />
+          <ActivityCard key={activity.id} activity={activity} />
         ))}
       </div>
     </div>

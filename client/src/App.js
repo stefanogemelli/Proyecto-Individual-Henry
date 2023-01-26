@@ -12,6 +12,7 @@ function App() {
   return (
     <div className="App">
       <div className="bgCapa"></div>
+      <div className="navSpace"></div>
       {pathname !== "/" && <NavBar />}
 
       <Switch>
