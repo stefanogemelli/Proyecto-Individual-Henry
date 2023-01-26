@@ -1,10 +1,14 @@
+import { useHistory } from "react-router-dom";
+
 import s from "./Confirmation.module.css";
 
 function ConfirmationModal({ infoModal, setInfoModal }) {
+  const { push } = useHistory();
   const { message, activity } = infoModal;
 
   const closeModal = () => {
     setInfoModal({});
+    push("/");
   };
   return (
     <div className={`${s.bg} ${activity?.name && s.modalActive}`}>

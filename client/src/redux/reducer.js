@@ -11,7 +11,7 @@ import {
 const initialState = {
   allCountries: [],
   filteredCountries: [],
-  countriesKeysNames: {}, // buscar mdn set
+  countriesKeysNames: {}, // buscar mdn set /.. no me sirve xq necesito las keys
   filters: {},
   sorts: {},
   countrySearch: "",

@@ -12,8 +12,13 @@ function App() {
   return (
     <div className="App">
       <div className="bgCapa"></div>
-      <div className="navSpace"></div>
-      {pathname !== "/" && <NavBar />}
+
+      {pathname !== "/" && (
+        <>
+          <NavBar />
+          <div className="navSpace"></div>
+        </>
+      )}
 
       <Switch>
         <Route exact path="/" component={Landing} />

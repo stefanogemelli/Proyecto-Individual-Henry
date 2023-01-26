@@ -1,0 +1,30 @@
+.container{
+  border: 1px solid var(--text);
+  background-color: var(--bgMenu);
+  backdrop-filter: blur(3px);
+  padding: 20px;
+  width: 400px;
+  height: 500px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+.container::-webkit-scrollbar {
+  width: 10px;
+  height: 12px;
+}
+.container::-webkit-scrollbar-thumb {
+  background: var(--text);
+  border-radius: 4px;
+}
+.container::-webkit-scrollbar-thumb:hover{
+  background: var(--textHover);
+}
+.container::-webkit-scrollbar-track {
+  background: var(--bgMenu);
+}
+.h2{
+  color: var(--textHover);
+}
+.hr{
+  border-color: var(--textHover);
+}

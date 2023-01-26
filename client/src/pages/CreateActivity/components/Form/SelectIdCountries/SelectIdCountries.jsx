@@ -3,14 +3,16 @@ import { useSelector } from "react-redux";
 import s from "./selectc.module.css";
 
 function SelectIdCountries({ idCountries, setIdCountries }) {
-  const allCountries = useSelector((state) => state.allCountries);
+  const allCountriesHashMap = useSelector((state) => state.countriesKeysNames);
+  const allCountries = [];
+  for (let i in allCountriesHashMap) {
+    allCountries.push({ id: [i], name: allCountriesHashMap[i] });
+  }
 
   const handleSelect = (e) => {
     const newId = e.target.value;
     const idFinded = idCountries.find((id) => id === newId);
-    if (idFinded) {
-      setIdCountries(idCountries.filter((id) => id != newId));
-    } else {
+    if (!idFinded) {
       setIdCountries([...idCountries, newId]);
     }
   };

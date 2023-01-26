@@ -1,8 +1,12 @@
 .container{
-  margin-top: 50px;
   /* position: relative; */
+  /* background-color: var(--bg); */
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+  z-index: 1;
 }
-.bg{
+/* .bg{
   height: 100vh;
   width: 100vw;
   position: absolute;
@@ -10,4 +14,4 @@
   left: 0;
   background-color: var(--black);
   z-index: -1;
-}
+} */

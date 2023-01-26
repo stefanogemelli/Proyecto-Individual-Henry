@@ -1,3 +1,9 @@
+.formAndShowCountries{
+  border: 2px solid red;
+  display: flex;
+  justify-content: space-around;
+  padding: 40px;
+}
 .form{
   display: flex;
   flex-direction: column;
@@ -6,8 +12,6 @@
   padding: 2rem;
   background-color: var(--bgMenu);
   max-width: 400px;
-  margin: auto;
-  margin-top: 50px;
 }
 .label{
   font-size: 1.3rem;
@@ -15,30 +19,11 @@
   margin-bottom: 1.5rem;
   color: var(--textHover);
 }
-/* .input{
-  width: 100%;
-  margin: .5rem 0px;
-  padding: .5rem;
-  border-radius: 3px;
-  background-color: var(--bgHover);
-  color: var(--golden);
-  font-size: 1.2rem;
-  -webkit-text-stroke: .2px #000;
-}
-.spanError{
-  opacity: 0;
-  background-color: var(--textHover);
-  color: var(--black);
-  line-height: 18px;
-  transition: all 25ms ease-in;
-}
-.errorVisible{
-  opacity: 1;
-} */
+
 .btn{
   margin-top: 10px;
   font-size: 1.3rem;
-  width: 95%;
+  width: 90%;
   padding: 4px;
   color: var(--text);
   background-color: var(--bg);

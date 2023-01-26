@@ -9,7 +9,7 @@ const namesToRender = {
 function Input({ handleChange, value, name, type, error }) {
   return (
     <>
-      <div class={`${s.form__group} ${s.field}`}>
+      <div className={`${s.form__group} ${s.field}`}>
         <input
           required
           placeholder={name}
@@ -19,7 +19,7 @@ function Input({ handleChange, value, name, type, error }) {
           value={value}
           name={name}
         />
-        <label class={s.form__label} for={name}>
+        <label className={s.form__label} htmlFor={name}>
           {namesToRender[name]}
         </label>
         <span className={`${s.spanError} ${error && s.errorVisible}`}>

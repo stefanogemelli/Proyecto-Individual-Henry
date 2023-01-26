@@ -1,0 +1,40 @@
+.country{
+  border: 1px solid var(--text);
+  padding: 10px;
+  margin-top: 5px;
+  position: relative;
+}
+.country:hover{
+  border-color: var(--textHover);
+  background-color: var(--bgHover);
+}
+.name{
+  display: inline;
+  font-size: 1.1rem;
+}
+.country:hover .name{
+  color: var(--textHover)
+}
+.icon{
+  width: 25px;
+  height: 25px;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("../../../../../assets/icons/delete.svg");
+  background-position: center;
+  background-size: cover;
+  opacity: 0;
+  cursor: pointer;
+} 
+.country:hover .icon{
+  opacity: 1;
+}
+.icon:hover{
+  transform:translate(-50%, -50%) scale(1.1);
+}
+.icon:active{
+  transform:translate(-50%, -50%) scale(1);
+}

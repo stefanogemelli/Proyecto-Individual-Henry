@@ -45,7 +45,7 @@ function Form() {
     setIdCountries([]);
   };
   return (
-    <>
+    <section className={s.formAndShowCountries}>
       <ConfirmationModal infoModal={infoModal} setInfoModal={setInfoModal} />
 
       <form onSubmit={handleSubmit} className={`${s.form}`}>
@@ -94,7 +94,7 @@ function Form() {
         </button>
       </form>
       <ShowCountries idCountries={idCountries} />
-    </>
+    </section>
   );
 }
 
