@@ -9,13 +9,14 @@
   align-items: flex-start;
   position: relative;
 }
+.h2{
+  color: var(--textHover);
+  margin-bottom: 3px;
+}
 .hr{
   width: 100%;
+  border-color: var(--textHover);
 }
-/* 
-.h2{
-  margin-left: 10px;
-} */
 .cardsContainer{
   /* border: 1px solid white; */
   width: 100%;
