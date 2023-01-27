@@ -18,7 +18,7 @@ function ConfirmationModal({ infoModal, setInfoModal }) {
           <h3 className={s.h3}>{activity?.name}</h3>
           <hr className={s.hr} />
           <p className={s.p}>{`Temporada: ${activity?.season}`}</p>
-          <p className={s.p}>{`Duración: ${activity?.duration}`}</p>
+          <p className={s.p}>{`Duración: ${activity?.duration} hs`}</p>
           <p className={s.p}>{`Dificultad: ${activity?.dificult}`}</p>
         </div>
         <button onClick={closeModal} className={s.btn}>

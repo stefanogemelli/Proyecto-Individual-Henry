@@ -46,7 +46,9 @@ function Form() {
   };
   return (
     <section className={s.formAndShowCountries}>
-      <ConfirmationModal infoModal={infoModal} setInfoModal={setInfoModal} />
+      {Object.keys(infoModal).length && (
+        <ConfirmationModal infoModal={infoModal} setInfoModal={setInfoModal} />
+      )}
 
       <form onSubmit={handleSubmit} className={`${s.form}`}>
         <label className={`${s.label}`}>

@@ -1,7 +1,7 @@
 .bg{
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.701);
@@ -9,10 +9,10 @@
   z-index: -10;
   transition: all .2s ease-in;
   opacity: 0;
+  z-index: 100;
 }
 .modalActive{
   opacity: 1;
-  z-index: 10000;
 }
 .modal{
   background-color: var(--black);
@@ -20,7 +20,7 @@
   width: 400px;
   border: 1px solid var(--textHover);
   position: absolute;
-  top: 40%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%,-50%);
   text-align: center;
@@ -29,10 +29,10 @@
 }
 .message{
   font-size: 1.7rem;
-  color: var(--golden);
+  color: var(--textHover);
 }
 .card{
-  border: 1px solid var(--golden);
+  /* border: 1px solid var(--textHover); */
   width: 300px;
   background-color: var(--bg);
   padding: 20px;
@@ -51,7 +51,17 @@
   margin-bottom: 10px;
   padding: 5px;
   font-size: 1.3rem;
-  background-color: var(--golden);
-  color: var(--black);
+  background-color: var(--bgHover);
+  color: var(--textHover);
+  border-color: var(--textHover);
+
   font-weight:600 ;
+}
+.btn:hover{
+  transform: scaleY(1.05);
+  background-color: var(--bgMenu);
+
+}
+.btn:active{
+  transform: scaleY(1);
 }
