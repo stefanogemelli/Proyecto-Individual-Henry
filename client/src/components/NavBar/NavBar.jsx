@@ -1,5 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 
+import WorldIcon from "../WorldIcon/WorldIcon";
+
 import s from "./NavBarStyles.module.css";
 
 function NavBar() {
@@ -9,6 +11,9 @@ function NavBar() {
       <nav className={`${s.nav}`}>
         {/* <div className={`${s.bg}`}></div>
         <div className={`${s.capa}`}></div> */}
+        <Link to="/home" className={s.icon}>
+          <WorldIcon width={"50px"} height={"50px"} />
+        </Link>
 
         <ul className={`${s.ul}`}>
           <li className={`${s.li}`}>
@@ -21,12 +26,22 @@ function NavBar() {
           </li>
           <li className={`${s.li}`}>
             <Link
-              to="/createactivity"
+              to="/activities/createactivity"
               className={`${s.btn} ${
-                pathname === "/createactivity" && s.active
+                pathname === "/activities/createactivity" && s.active
               }`}
             >
               Crear Actividad
+            </Link>
+          </li>
+          <li className={`${s.li}`}>
+            <Link
+              to="/activities"
+              className={`${s.btn} ${
+                pathname.includes("/activities") && s.active
+              }`}
+            >
+              Actividades
             </Link>
           </li>
         </ul>

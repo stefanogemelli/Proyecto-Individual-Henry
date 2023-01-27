@@ -2,6 +2,7 @@ import { Switch, Route, useLocation } from "react-router-dom";
 
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
+import Activities from "./pages/Activities/Activities";
 import CreateActivity from "./pages/CreateActivity/CreateActivity";
 import Detail from "./pages/Detail/Detail";
 import Home from "./pages/Home/Home";
@@ -24,7 +25,12 @@ function App() {
         <Route exact path="/" component={Landing} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/detail/:idCountry" component={Detail} />
-        <Route exact path="/createactivity" component={CreateActivity} />
+        <Route exact path="/activities" component={Activities} />
+        <Route
+          exact
+          path="/activities/createactivity"
+          component={CreateActivity}
+        />
       </Switch>
     </div>
   );

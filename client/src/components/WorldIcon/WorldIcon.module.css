@@ -1,0 +1,6 @@
+.svg path{
+  fill: var(--text);
+}
+.svg:hover path{
+  fill:var(--textHover);
+}
