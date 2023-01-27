@@ -23,7 +23,7 @@
   right: 0;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-image: url("../../../../../assets/icons/delete.svg");
+  background-image: url("../../../../../../../assets/icons/delete.svg");
   background-position: center;
   background-size: cover;
   opacity: 0;

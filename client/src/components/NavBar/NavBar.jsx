@@ -24,7 +24,7 @@ function NavBar() {
               Inicio
             </Link>
           </li>
-          <li className={`${s.li}`}>
+          {/* <li className={`${s.li}`}>
             <Link
               to="/activities/createactivity"
               className={`${s.btn} ${
@@ -33,7 +33,7 @@ function NavBar() {
             >
               Crear Actividad
             </Link>
-          </li>
+          </li> */}
           <li className={`${s.li}`}>
             <Link
               to="/activities"

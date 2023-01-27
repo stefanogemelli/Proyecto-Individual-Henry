@@ -1,0 +1,23 @@
+.ul{
+  border: 1px solid var(--textHover);
+  border-bottom: none;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  padding: 10px;
+  background-color: var(--bg);
+  backdrop-filter: blur(2px);
+}
+.li{
+  list-style-type: none;
+  padding: 5px 10px;
+}
+.li:hover{
+  color: var(--textHover)
+}
+.active{
+  color: var(--textHover);
+  background-color: var(--bgMenu);
+  border: 1px solid var(--textHover);
+}

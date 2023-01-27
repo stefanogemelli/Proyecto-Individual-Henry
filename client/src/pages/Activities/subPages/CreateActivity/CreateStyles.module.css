@@ -1,9 +1,10 @@
 .container{
-  /* position: relative; */
-  /* background-color: var(--bg); */
-  width: 80%;
+  position: relative;
+  background-color: var(--bg);
+  backdrop-filter: blur(2px);
+  border: 1px solid var(--textHover);
+  width: 90%;
   margin: auto;
-  margin-top: 50px;
   z-index: 1;
 }
 /* .bg{
