@@ -56,7 +56,7 @@ function Pagination() {
 
   return (
     <>
-      <div>
+      <div className={s.container}>
         <div className={`${s.buttons}`}>
           <button onClick={() => handleLR("LL")} className={s.btnArrow}>
             <ArrowDLeft />

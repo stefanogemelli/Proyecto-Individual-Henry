@@ -4,7 +4,7 @@ export const FILTER_COUNTRIES = "FILTER";
 export const SORT_COUNTRIES = "SORT_COUNTRIES";
 export const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 export const CLEAR_FILTERS = "CLEAR_FILTERS";
-export const SET_COUNTRY_SEARCH = "SET_COUNTRY_SEARCH";
+export const SET_COUNTRY_SEARCHED = "SET_COUNTRY_SEARCHED";
 
 export const getAllCountriesApi = () => async (dispatch) => {
   try {
@@ -21,6 +21,7 @@ export const getAllCountriesApi = () => async (dispatch) => {
 };
 
 export const getCountriesFromApiByName = (name) => async (dispatch) => {
+  console.log("getCountriesFromApiByName");
   try {
     const data = await fetch(
       `http://localhost:3001/countries?name=${name}`
@@ -63,10 +64,10 @@ export const setCurrentPage = (payload) => {
   };
 };
 
-export const setCountrySearch = (payload) => {
-  console.log("payload", payload);
+export const setCountrySearched = (payload) => {
+  console.log("setCountrySearched", payload);
   return {
-    type: SET_COUNTRY_SEARCH,
+    type: SET_COUNTRY_SEARCHED,
     payload: payload,
   };
 };

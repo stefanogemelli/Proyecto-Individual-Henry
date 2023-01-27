@@ -5,7 +5,7 @@ import {
   SET_CURRENT_PAGE,
   GET_COUNTRIES_API_BY_NAME,
   CLEAR_FILTERS,
-  SET_COUNTRY_SEARCH,
+  SET_COUNTRY_SEARCHED,
 } from "./actions";
 
 const initialState = {
@@ -14,7 +14,7 @@ const initialState = {
   countriesKeysNames: {}, // buscar mdn set /.. no me sirve xq necesito las keys
   filters: {},
   sorts: {},
-  countrySearch: "",
+  countrySearched: "",
   currentPage: 1,
 };
 
@@ -30,6 +30,7 @@ export const rootReducer = (state = initialState, { type, payload }) => {
         allCountries: [...payload],
         filteredCountries: [...payload],
         countriesKeysNames: { ...countriesKeyName },
+        filters: {},
         currentPage: 1,
       };
     case GET_COUNTRIES_API_BY_NAME:
@@ -42,11 +43,10 @@ export const rootReducer = (state = initialState, { type, payload }) => {
         filteredCountries: newFCountries,
         currentPage: 1,
       };
-    case SET_COUNTRY_SEARCH:
-      console.log("aaa", payload);
+    case SET_COUNTRY_SEARCHED:
       return {
         ...state,
-        countrySearch: payload,
+        countrySearched: payload,
       };
     case FILTER_COUNTRIES: //payload = {filter:"name /continent /activity",value:"value"}
       let newFilteredCountries = [...state.allCountries];

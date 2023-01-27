@@ -18,6 +18,7 @@ function Input({ handleChange, value, name, type, error }) {
           onChange={handleChange}
           value={value}
           name={name}
+          id={name}
         />
         <label className={s.form__label} htmlFor={name}>
           {namesToRender[name]}

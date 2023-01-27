@@ -1,10 +1,10 @@
-// import { useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
   getCountriesFromApiByName,
   getAllCountriesApi,
-  setCountrySearch,
+  setCountrySearched,
 } from "../../../redux/actions";
 
 import searchIcon from "../../../assets/icons/busqueda.svg";
@@ -12,41 +12,48 @@ import reset from "../../../assets/icons/reset.svg";
 import s from "./styles.module.css";
 
 function SearchCountry() {
-  const countrySearch = useSelector((state) => state.countrySearch);
-
+  const countrySearched = useSelector((state) => state.countrySearched);
+  const [countryToSearch, setCountryToSearch] = useState(countrySearched || "");
   const dispatch = useDispatch();
-  const searchCountries = (e) => {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(getCountriesFromApiByName(countrySearch));
+    dispatch(getCountriesFromApiByName(countryToSearch));
+    dispatch(setCountrySearched(countryToSearch));
   };
   const handleChange = (e) => {
-    dispatch(setCountrySearch(e.target.value));
+    setCountryToSearch(e.target.value);
   };
   const showAll = () => {
-    getAllCountriesApi();
-    dispatch(setCountrySearch(""));
+    console.log("showAll");
+    dispatch(setCountrySearched(""));
     dispatch(getAllCountriesApi());
+    setCountryToSearch("");
   };
   return (
     <>
-      <form onSubmit={searchCountries} className={`${s.searchContainer}`}>
+      <form onSubmit={handleSubmit} className={`${s.form}`}>
         <h2 className={s.h2}>Busqueda</h2>
-        <input
-          onChange={handleChange}
-          type="text"
-          value={countrySearch}
-          className={`${s.input}`}
-        />
-        <div className={`${s.buttonsContainer}`}>
-          <button type="submit" className={`${s.btn}`}>
-            <img src={searchIcon} alt="search" className={s.icon} />
-          </button>
+        <div className={`${s.inpBtns}`}>
+          <input
+            onChange={handleChange}
+            type="text"
+            value={countryToSearch}
+            className={`${s.input}`}
+          />
 
-          <button type="button" onClick={showAll} className={`${s.btn}`}>
-            <img src={reset} alt="search" className={s.iconReset} />
-          </button>
+          {!countrySearched ? (
+            <button type="submit" className={`${s.btn}`}>
+              <img src={searchIcon} alt="search" className={s.icon} />
+            </button>
+          ) : (
+            <span onClick={showAll} className={`${s.btnReset}`}>
+              <img src={reset} alt="reset" className={s.iconReset} />
+            </span>
+          )}
         </div>
       </form>
+
       <hr className={s.hr} />
     </>
   );

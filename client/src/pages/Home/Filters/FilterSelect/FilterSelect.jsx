@@ -24,7 +24,7 @@ function FilterSelect({ options, name }) {
       className={`${s.select}`}
       onChange={handleChange}
       name={name}
-      value={globalValue}
+      value={globalValue || ""}
     >
       {options.map((c) => (
         <option key={c} value={c}>
