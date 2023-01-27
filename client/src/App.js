@@ -4,6 +4,7 @@ import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import Activities from "./pages/Activities/Activities";
 import Detail from "./pages/Detail/Detail";
+import Error404 from "./pages/Error404/Error404";
 import Home from "./pages/Home/Home";
 import Landing from "./pages/Landing/Landing";
 
@@ -11,7 +12,9 @@ function App() {
   const { pathname } = useLocation();
   return (
     <div className="App">
-      <div className="bgCapa"></div>
+      <div className="bg">
+        <div className="bgCapa"></div>
+      </div>
 
       {pathname !== "/" && (
         <>
@@ -25,7 +28,7 @@ function App() {
         <Route exact path="/home" component={Home} />
         <Route exact path="/detail/:idCountry" component={Detail} />
         <Route exact path="/activities" component={Activities} />
-        <Route path="/*" component={Activities} />
+        <Route path="/*" component={Error404} />
       </Switch>
     </div>
   );
