@@ -14,7 +14,7 @@ function NavBar() {
           <li className={`${s.li}`}>
             <Link
               to="/home"
-              className={`${s.btn} ${pathname == "/home" && s.active}`}
+              className={`${s.btn} ${pathname === "/home" && s.active}`}
             >
               Inicio
             </Link>
@@ -23,7 +23,7 @@ function NavBar() {
             <Link
               to="/createactivity"
               className={`${s.btn} ${
-                pathname == "/createactivity" && s.active
+                pathname === "/createactivity" && s.active
               }`}
             >
               Crear Actividad

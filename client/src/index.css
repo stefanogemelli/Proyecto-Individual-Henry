@@ -17,7 +17,7 @@
 /* bg #37363b */
 /* bg hover #4b4a4f */
 /* bg menu #2a292e */
-select:focus-visible{
+select:focus-visible, input:focus-visible{
   outline: none;
 }
 select{

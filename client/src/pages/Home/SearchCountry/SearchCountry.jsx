@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
@@ -43,7 +43,7 @@ function SearchCountry() {
           </button>
 
           <button type="button" onClick={showAll} className={`${s.btn}`}>
-            <img src={reset} alt="search" className={s.icon} />
+            <img src={reset} alt="search" className={s.iconReset} />
           </button>
         </div>
       </form>

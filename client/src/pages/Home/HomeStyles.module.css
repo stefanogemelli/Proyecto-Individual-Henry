@@ -5,13 +5,13 @@
   justify-content: space-around;
   position: relative;
 }
-.background{
+/* .background{
   background-color: var(--bg);
   height: 100vh;
   min-width: 100vw;
   position: fixed;
   top: 0;
   justify-content: space-around;
-  z-index: -2;
-}
+  z-index: 0;
+} */
 

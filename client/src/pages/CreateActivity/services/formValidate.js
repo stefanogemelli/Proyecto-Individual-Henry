@@ -3,7 +3,7 @@
 // duration:
 // season:
 //idCountries: [] => minLength = 1
-const nameRegex = /^[a-zA-Z\s]{4,30}$/;
+const nameRegex = /^[0-9a-zA-Z\s]{4,30}$/;
 export default function formValidate(key, value) {
   let err = "";
   if (value === "") return err;

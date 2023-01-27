@@ -3,7 +3,7 @@
 import s from "./ActivityCard.module.css";
 
 function ActivityCard({ activity }) {
-  const { id, name, dificult, duration, season } = activity;
+  const { name, dificult, duration, season } = activity;
   return (
     // <Link to={`/activity/${id}`}>
     <div className={s.card}>

@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useState } from "react";
+// import { useEffect } from "react";
+// import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setCurrentPage } from "../../../redux/actions";
 
@@ -24,8 +24,8 @@ function Pagination() {
 
   const paginatedCountries = Array.isArray(allCountries)
     ? allCountries.slice(
-        (currentPage - 1) * amount, // pag2 =>  [9]
-        currentPage * amount // pag2 =>  [18]
+        (currentPage - 1) * amount, // pag1 =>  [0]
+        currentPage * amount // pag1 =>  [9]
       )
     : []; // slice(0,9)
 
@@ -68,7 +68,7 @@ function Pagination() {
             <button
               key={i}
               onClick={() => handleLR(i)}
-              className={`${s.btn} ${currentPage == i && s.active}`}
+              className={`${s.btn} ${currentPage === i && s.active}`}
             >
               {i}
             </button>
@@ -81,7 +81,7 @@ function Pagination() {
           </button>
         </div>
 
-        <div className={`${s.cardsContainer}`}>
+        <div className={`${s.cardsContainer} `}>
           {paginatedCountries.map((country) => (
             <Card key={country.id} country={country} />
           ))}

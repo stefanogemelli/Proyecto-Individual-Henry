@@ -1,5 +1,5 @@
 .formAndShowCountries{
-  border: 2px solid red;
+  /* border: 2px solid red; */
   display: flex;
   justify-content: space-around;
   padding: 40px;
@@ -11,6 +11,7 @@
   border: 1px solid var(--text);
   padding: 2rem;
   background-color: var(--bgMenu);
+  backdrop-filter: blur(3px);
   max-width: 400px;
 }
 .label{

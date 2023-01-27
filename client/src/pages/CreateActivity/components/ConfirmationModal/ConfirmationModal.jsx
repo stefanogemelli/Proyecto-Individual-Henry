@@ -8,7 +8,7 @@ function ConfirmationModal({ infoModal, setInfoModal }) {
 
   const closeModal = () => {
     setInfoModal({});
-    push("/");
+    push("/home");
   };
   return (
     <div className={`${s.bg} ${activity?.name && s.modalActive}`}>
