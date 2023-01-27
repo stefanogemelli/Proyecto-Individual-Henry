@@ -103,7 +103,10 @@ function Form() {
           Crear Actividad
         </button>
       </form>
-      <ShowCountries idCountries={idCountries} />
+      <ShowCountries
+        idCountries={idCountries}
+        setIdCountries={setIdCountries}
+      />
     </section>
   );
 }
