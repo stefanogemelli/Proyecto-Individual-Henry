@@ -1,9 +1,20 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { getAllCountriesApi } from "../../../../../../../redux/actions";
 
 import s from "./selectc.module.css";
 
 function SelectIdCountries({ idCountries, setIdCountries }) {
   const allCountriesHashMap = useSelector((state) => state.countriesKeysNames);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    typeof allCountriesHashMap === "object" &&
+      !Object.keys(allCountriesHashMap).length &&
+      dispatch(getAllCountriesApi());
+  });
+
   const allCountries = [];
   for (let i in allCountriesHashMap) {
     allCountries.push({ id: [i], name: allCountriesHashMap[i] });

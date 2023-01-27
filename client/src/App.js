@@ -25,6 +25,7 @@ function App() {
         <Route exact path="/home" component={Home} />
         <Route exact path="/detail/:idCountry" component={Detail} />
         <Route exact path="/activities" component={Activities} />
+        <Route path="/*" component={Activities} />
       </Switch>
     </div>
   );
