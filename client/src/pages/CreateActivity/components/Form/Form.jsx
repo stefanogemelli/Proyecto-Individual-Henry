@@ -34,15 +34,23 @@ function Form() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = await createActivity({ ...inputs, idCountries });
-    setInfoModal(data);
-    setInputs({
-      name: "",
-      dificult: "",
-      duration: "",
-      season: "",
-    });
-    setIdCountries([]);
+    if (
+      errors.name === "" &&
+      errors.dificult === "" &&
+      errors.duration === "" &&
+      errors.season === "" &&
+      idCountries.length > 0
+    ) {
+      const data = await createActivity({ ...inputs, idCountries });
+      setInfoModal(data);
+      setInputs({
+        name: "",
+        dificult: "",
+        duration: "",
+        season: "",
+      });
+      setIdCountries([]);
+    }
   };
   return (
     <section className={s.formAndShowCountries}>
