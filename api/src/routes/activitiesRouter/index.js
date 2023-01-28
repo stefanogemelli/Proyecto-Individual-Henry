@@ -1,37 +1,19 @@
 const { Router } = require("express");
-const { createActivity, getActivityNames } = require("../../controllers");
+const {
+  get_activities,
+  get_activitiesNames,
+  post_createActivity,
+} = require("../../handlers/activitiesHandlers");
 
 const activitiesRouter = Router();
 
-activitiesRouter.get("/names", async (req, res) => {
-  try {
-    const result = await getActivityNames();
-    res.status(200).json(result);
-  } catch (error) {
-    res.status(400).send(error.message);
-  }
-});
+activitiesRouter.get("/all", get_activities);
+
+activitiesRouter.get("/names", get_activitiesNames);
 
 // [ ] POST /activities:
 // Recibe los datos recolectados desde el formulario controlado de la ruta de creación de actividad turística por body
 // Crea una actividad turística en la base de datos, relacionada con los países correspondientes
-activitiesRouter.post("/", async (req, res) => {
-  const { name, dificult, duration, season, idCountries } = req.body;
-  try {
-    const newActivity = await createActivity(
-      name,
-      dificult,
-      duration,
-      season,
-      idCountries
-    );
-    res.status(201).json({
-      message: "La actividad fue creada correctamente",
-      activity: newActivity,
-    });
-  } catch (error) {
-    res.status(400).send(error.message);
-  }
-});
+activitiesRouter.post("/", post_createActivity);
 
 module.exports = activitiesRouter;

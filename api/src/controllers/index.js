@@ -87,6 +87,17 @@ const getCountryById = async (idCountry) => {
   return countryAndActivities; //const newRessult = [{name, id, data, estonova} ].map(c=>{c.name , c.id, c.data})
 };
 
+const getActivityNames = async () => {
+  try {
+    activitiesList = await Activity.findAll({
+      attributes: ["name"],
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  return activitiesList;
+};
+
 const createActivity = async (
   name,
   dificult,
@@ -106,15 +117,9 @@ const createActivity = async (
   return newActivity;
 };
 
-const getActivityNames = async () => {
-  try {
-    activitiesList = await Activity.findAll({
-      attributes: ["name"],
-    });
-  } catch (error) {
-    console.log(error);
-  }
-  return activitiesList;
+const getActivities = async () => {
+  const listActivities = await Activity.findAll();
+  return listActivities;
 };
 
 module.exports = {
@@ -123,5 +128,6 @@ module.exports = {
   getCountriesByName,
   getCountryById,
   createActivity,
+  getActivities,
   getActivityNames,
 };

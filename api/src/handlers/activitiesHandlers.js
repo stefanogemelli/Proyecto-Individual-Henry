@@ -1,0 +1,47 @@
+const {
+  getActivities,
+  createActivity,
+  getActivityNames,
+} = require("../controllers");
+
+const get_activities = async (req, res) => {
+  try {
+    const result = await getActivities();
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
+const get_activitiesNames = async (req, res) => {
+  try {
+    const result = await getActivityNames();
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
+
+const post_createActivity = async (req, res) => {
+  const { name, dificult, duration, season, idCountries } = req.body;
+  try {
+    const newActivity = await createActivity(
+      name,
+      dificult,
+      duration,
+      season,
+      idCountries
+    );
+    res.status(201).json({
+      message: "La actividad fue creada correctamente",
+      activity: newActivity,
+    });
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
+
+module.exports = {
+  get_activities,
+  get_activitiesNames,
+  post_createActivity,
+};
