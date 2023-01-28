@@ -9,8 +9,6 @@ function NavBar() {
   return (
     <>
       <nav className={`${s.nav}`}>
-        {/* <div className={`${s.bg}`}></div>
-        <div className={`${s.capa}`}></div> */}
         <Link to="/home" className={s.icon}>
           <WorldIcon width={"50px"} height={"50px"} />
         </Link>
@@ -24,16 +22,6 @@ function NavBar() {
               Inicio
             </Link>
           </li>
-          {/* <li className={`${s.li}`}>
-            <Link
-              to="/activities/createactivity"
-              className={`${s.btn} ${
-                pathname === "/activities/createactivity" && s.active
-              }`}
-            >
-              Crear Actividad
-            </Link>
-          </li> */}
           <li className={`${s.li}`}>
             <Link
               to="/activities"

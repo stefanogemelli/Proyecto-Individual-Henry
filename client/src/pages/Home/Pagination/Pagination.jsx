@@ -58,12 +58,12 @@ function Pagination() {
     <>
       <div className={s.container}>
         <div className={`${s.buttons}`}>
-          <button onClick={() => handleLR("LL")} className={s.btnArrow}>
+          <span onClick={() => handleLR("LL")} className={s.btnArrow}>
             <ArrowDLeft />
-          </button>
-          <button onClick={() => handleLR("L")} className={s.btnArrow}>
+          </span>
+          <span onClick={() => handleLR("L")} className={s.btnArrow}>
             <ArrowLeft />
-          </button>
+          </span>
           {buttonIndex?.map((i) => (
             <button
               key={i}
@@ -73,12 +73,12 @@ function Pagination() {
               {i}
             </button>
           ))}
-          <button onClick={() => handleLR("R")} className={s.btnArrow}>
+          <span onClick={() => handleLR("R")} className={s.btnArrow}>
             <ArrowRight />
-          </button>
-          <button onClick={() => handleLR("RR")} className={s.btnArrow}>
+          </span>
+          <span onClick={() => handleLR("RR")} className={s.btnArrow}>
             <ArrowDRight />
-          </button>
+          </span>
         </div>
 
         <div className={`${s.cardsContainer} `}>

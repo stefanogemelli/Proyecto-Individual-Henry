@@ -12,14 +12,13 @@ function App() {
   const { pathname } = useLocation();
   return (
     <div className="App">
-      <div className="bg">
-        <div className="bgCapa"></div>
-      </div>
-
       {pathname !== "/" && (
         <>
           <NavBar />
           <div className="navSpace"></div>
+          <div className="bg">
+            <div className="bgCapa"></div>
+          </div>
         </>
       )}
 

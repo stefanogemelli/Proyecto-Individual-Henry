@@ -9,4 +9,5 @@
   display: flex;
   flex-direction: column;
   margin-top: 65px;
+  border-radius:var(--bRad); 
 }

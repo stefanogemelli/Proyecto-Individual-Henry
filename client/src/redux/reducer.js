@@ -34,9 +34,16 @@ export const rootReducer = (state = initialState, { type, payload }) => {
         currentPage: 1,
       };
     case GET_COUNTRIES_API_BY_NAME:
-      const newAllCountries = payload;
-      let newFCountries = filterApply(payload, { ...state.filters });
-
+      let newAllCountries;
+      let newFCountries;
+      if (Array.isArray(payload)) {
+        newFCountries = filterApply(payload, { ...state.filters });
+        newAllCountries = payload;
+      } else {
+        newFCountries = payload;
+        newAllCountries = [payload];
+      }
+      console.log(newFCountries);
       return {
         ...state,
         allCountries: newAllCountries,

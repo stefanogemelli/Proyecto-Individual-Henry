@@ -7,24 +7,25 @@
   height: 500px;
   overflow-y: scroll;
   scroll-behavior: smooth;
+  border-radius: var(--bRad);
 }
 .container::-webkit-scrollbar {
   width: 10px;
   height: 12px;
 }
 .container::-webkit-scrollbar-thumb {
-  background: var(--text);
+  background: var(--textHover);
   border-radius: 4px;
 }
-.container::-webkit-scrollbar-thumb:hover{
-  background: var(--textHover);
-}
 .container::-webkit-scrollbar-track {
-  background: var(--bgMenu);
+  background: var(--bg);
+  border-radius: 0px 10px 10px 0px;
 }
 .h2{
   color: var(--textHover);
 }
 .hr{
   border-color: var(--textHover);
+  margin-bottom: 10px;
+
 }
