@@ -1,0 +1,12 @@
+.container{
+  border: 2px solid var(--text);
+  background-color: var(--bgMenu);
+  backdrop-filter: blur(1px);
+  width: 50vw;
+  margin: auto;
+  padding: 2rem;
+}
+
+.h2{
+  font-size: 3rem;
+}

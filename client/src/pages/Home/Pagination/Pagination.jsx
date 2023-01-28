@@ -10,6 +10,7 @@ import ArrowLeft from "./Arrows/ArrowLeft";
 import ArrowDLeft from "./Arrows/ArrowDLeft";
 
 import s from "./PaginationStyles.module.css";
+import NoResults from "../NoResults/NoResults";
 
 function Pagination() {
   const allCountries = useSelector((state) => state.filteredCountries);
@@ -82,9 +83,13 @@ function Pagination() {
         </div>
 
         <div className={`${s.cardsContainer} `}>
-          {paginatedCountries.map((country) => (
-            <Card key={country.id} country={country} />
-          ))}
+          {!!paginatedCountries.length ? (
+            paginatedCountries.map((country) => (
+              <Card key={country.id} country={country} />
+            ))
+          ) : (
+            <NoResults />
+          )}
         </div>
       </div>
     </>
