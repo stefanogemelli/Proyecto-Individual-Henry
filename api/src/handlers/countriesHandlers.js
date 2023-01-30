@@ -25,9 +25,10 @@ const get_countries = async (req, res) => {
 const get_countriesById = async (req, res) => {
   const { idCountry } = req.params;
   try {
-    res.status(200).json(await getCountryById(idCountry));
+    let result = await getCountryById(idCountry);
+    res.status(200).json(result);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(204).json({ error: error.message });
   }
 };
 module.exports = { get_countries, get_countriesById };

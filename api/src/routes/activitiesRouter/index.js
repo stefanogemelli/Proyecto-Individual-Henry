@@ -3,6 +3,7 @@ const {
   get_activities,
   get_activitiesNames,
   post_createActivity,
+  delete_deleteActivity,
 } = require("../../handlers/activitiesHandlers");
 
 const activitiesRouter = Router();
@@ -10,6 +11,8 @@ const activitiesRouter = Router();
 activitiesRouter.get("/all", get_activities);
 
 activitiesRouter.get("/names", get_activitiesNames);
+
+activitiesRouter.delete("/:id", delete_deleteActivity);
 
 // [ ] POST /activities:
 // Recibe los datos recolectados desde el formulario controlado de la ruta de creación de actividad turística por body

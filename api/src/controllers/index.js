@@ -32,7 +32,7 @@ const getCountriesFromApi = async () => {
     data.map((c) => {
       setCountriesDB({
         id: c.cca3,
-        name: c.name?.common, //  if(c.name) c.name.common
+        name: c.name?.common,
         flagImg: c.flags[0],
         continent: c.continents[0],
         capital: c.capital?.[0],
@@ -42,7 +42,7 @@ const getCountriesFromApi = async () => {
       });
     });
   } catch (error) {
-    throw Error("hola");
+    console.log(error.message);
   }
 };
 // getCountriesFromApi();
@@ -84,7 +84,7 @@ const getCountryById = async (idCountry) => {
       },
     ],
   });
-  return countryAndActivities; //const newRessult = [{name, id, data, estonova} ].map(c=>{c.name , c.id, c.data})
+  return countryAndActivities;
 };
 
 const getActivityNames = async () => {
@@ -122,6 +122,12 @@ const getActivities = async () => {
   return listActivities;
 };
 
+const deleteActivity = async (id) => {
+  const activity = await Activity.findByPk(id);
+  await activity.destroy();
+  return { message: "Actividad eliminada con éxito" };
+};
+
 module.exports = {
   getCountriesFromApi,
   getCountries,
@@ -130,4 +136,5 @@ module.exports = {
   createActivity,
   getActivities,
   getActivityNames,
+  deleteActivity,
 };
