@@ -4,6 +4,7 @@
   border-radius: 10px 10px 3px 3px;
   cursor:pointer;
   width: 230px;
+  position: relative;
 }
 
 .card:hover{
@@ -21,4 +22,18 @@
 
 .card, .h3  {
   transition: all .1s ease;
+}
+.deleteIcon{
+  background-image: url("../../assets/icons/delete.svg");
+  background-position: center;
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 5px;
+  right: 3px;
+  opacity: 0;
+}
+.card:hover .deleteIcon{
+  opacity: 1;
 }
