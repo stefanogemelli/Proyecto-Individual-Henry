@@ -1,0 +1,75 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.h2{
+  color: var(--textHover);
+  margin-top: 30px;
+}
+.hr{
+  border-color: var(--textHover);
+  margin: 5px 20px;
+  width: 1150px;
+}
+.bgText{
+  background-color: var(--bgMenu);
+  border-radius: var(--bRad);
+  margin: 10px 20px;
+  padding: 30px 40px;
+  width: 1200px;
+}
+.text{
+  line-height: 25px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+}
+.bgIcons{
+  background-color: var(--bgMenu);
+  border-radius: var(--bRad);
+  margin: 10px 20px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 1200px;
+  padding: 20px;
+
+}
+.divIcon{
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+.allIcons{
+  background-size: cover;
+  width: 60px;
+  height: 60px;
+  display: block;
+}
+.html5{
+  background-image: url("../../../../assets/icons/technologies/html5.svg");
+}
+.css3{
+  background-image: url("../../../../assets/icons/technologies/css3.svg");
+}
+.js{
+  background-image: url("../../../../assets/icons/technologies/js.svg");
+}
+.react{
+  background-image: url("../../../../assets/icons/technologies/react.svg");
+}
+.redux{
+  background-image: url("../../../../assets/icons/technologies/redux.svg");
+}
+.reactRouter{
+  background-image: url("../../../../assets/icons/technologies/react-router.svg");
+}
+.postgreSQL{
+  background-image: url("../../../../assets/icons/technologies/posgreSQL.svg");
+}
+.git{
+  background-image: url("../../../../assets/icons/technologies/git.svg");
+}

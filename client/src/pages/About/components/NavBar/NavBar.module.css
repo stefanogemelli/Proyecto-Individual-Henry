@@ -1,0 +1,26 @@
+.ul{
+  border: 1px solid var(--textHover);
+  border-bottom: none;
+  width: 270px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  padding: 10px 15px 0px 15px;
+  background-color: var(--bgMenu);
+  backdrop-filter: blur(2px);
+  border-radius: 5px 5px 0px 0px;
+}
+.li{
+  list-style-type: none;
+  padding: 7px 10px;
+  border-radius: 3px;
+}
+.li:hover{
+  color: var(--textHover)
+}
+.active{
+  color: var(--textHover);
+  background-color: var(--bg);
+  border: 1px solid var(--textHover);
+  border-bottom: none;
+}

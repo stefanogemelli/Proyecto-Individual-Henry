@@ -16,7 +16,6 @@ function Activities() {
   return (
     <div className={s.container}>
       <NavBar page={page} setPage={setPage} />
-
       {switchPage[page]}
     </div>
   );

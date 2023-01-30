@@ -1,0 +1,9 @@
+.pageContainer{
+  border: 1px solid var(--textHover);
+  width: 90%;
+  margin: auto;
+  background-color: var(--bg);
+  backdrop-filter: blur(2px);
+  border-radius: var(--bRad);
+  padding-bottom: 40px;
+}

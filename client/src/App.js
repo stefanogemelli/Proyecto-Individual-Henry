@@ -2,6 +2,7 @@ import { Switch, Route, useLocation } from "react-router-dom";
 
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
+import About from "./pages/About/About";
 import Activities from "./pages/Activities/Activities";
 import Detail from "./pages/Detail/Detail";
 import Error404 from "./pages/Error404/Error404";
@@ -27,7 +28,7 @@ function App() {
         <Route exact path="/home" component={Home} />
         <Route exact path="/detail/:idCountry" component={Detail} />
         <Route exact path="/activities" component={Activities} />
-        <Route exact path="/about" component={Activities} />
+        <Route exact path="/about" component={About} />
         <Route path="/*" component={Error404} />
       </Switch>
     </div>

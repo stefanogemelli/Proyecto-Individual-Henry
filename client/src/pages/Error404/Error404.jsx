@@ -5,8 +5,6 @@ function Error404() {
   const [show, setShow] = useState(false);
   const { push } = useHistory();
 
-  // push("/home");
-
   useEffect(() => {
     setShow(true);
   }, []);
