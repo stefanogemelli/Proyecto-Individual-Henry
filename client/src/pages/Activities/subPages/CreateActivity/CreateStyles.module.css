@@ -1,5 +1,4 @@
 .container{
-  position: relative;
   background-color: var(--bg);
   backdrop-filter: blur(2px);
   border: 1px solid var(--textHover);
@@ -7,6 +6,8 @@
   width: 90%;
   margin: auto;
   z-index: 1;
+  position: static;
+  /* overflow: hidden; */
 }
 /* .bg{
   height: 100vh;

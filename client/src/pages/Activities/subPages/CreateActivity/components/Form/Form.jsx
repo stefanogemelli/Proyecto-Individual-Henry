@@ -53,7 +53,7 @@ function Form() {
     }
   };
   return (
-    <section className={s.formAndShowCountries}>
+    <div className={s.formAndShowCountries}>
       {!!Object.keys(infoModal).length && (
         <ConfirmationModal infoModal={infoModal} setInfoModal={setInfoModal} />
       )}
@@ -107,7 +107,7 @@ function Form() {
         idCountries={idCountries}
         setIdCountries={setIdCountries}
       />
-    </section>
+    </div>
   );
 }
 

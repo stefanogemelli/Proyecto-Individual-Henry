@@ -32,6 +32,14 @@ function NavBar() {
               Actividades
             </Link>
           </li>
+          <li className={`${s.li}`}>
+            <Link
+              to="/about"
+              className={`${s.btn} ${pathname.includes("/about") && s.active}`}
+            >
+              Acerca de
+            </Link>
+          </li>
         </ul>
       </nav>
     </>

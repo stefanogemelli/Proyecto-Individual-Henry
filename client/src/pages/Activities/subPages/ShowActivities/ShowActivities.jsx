@@ -14,7 +14,6 @@ function ShowActivities() {
       getActivitiesFromApi().then((data) => setActivities(data));
   });
 
-  console.log(activities);
   return (
     <section className={s.container}>
       <div className={s.activitiesContainer}>

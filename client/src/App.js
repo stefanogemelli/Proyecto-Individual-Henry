@@ -27,6 +27,7 @@ function App() {
         <Route exact path="/home" component={Home} />
         <Route exact path="/detail/:idCountry" component={Detail} />
         <Route exact path="/activities" component={Activities} />
+        <Route exact path="/about" component={Activities} />
         <Route path="/*" component={Error404} />
       </Switch>
     </div>
