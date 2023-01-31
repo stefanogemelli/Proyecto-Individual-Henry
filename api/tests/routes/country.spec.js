@@ -5,7 +5,8 @@ const app = require("../../src/app.js");
 const { Country, conn } = require("../../src/db.js");
 
 const agent = session(app);
-const country = {
+const activity = {
+  // modificar
   name: "Argentina",
 };
 

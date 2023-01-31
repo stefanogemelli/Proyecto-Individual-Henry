@@ -15,20 +15,19 @@ import NoResults from "../NoResults/NoResults";
 function Pagination() {
   const allCountries = useSelector((state) => state.filteredCountries);
   const currentPage = useSelector((state) => state.currentPage);
-
   const dispatch = useDispatch();
 
-  // allCountries = 10
-  const amount = 9;
+  const amount = 10;
+  const totalPages = Math.ceil((allCountries?.length - 9) / amount) + 1;
 
-  const totalPages = Math.ceil(allCountries?.length / amount);
+  const firstPage = Array.isArray(allCountries) && allCountries.slice(0, 9);
 
   const paginatedCountries = Array.isArray(allCountries)
     ? allCountries.slice(
-        (currentPage - 1) * amount, // pag1 =>  [0]
-        currentPage * amount // pag1 =>  [9]
+        (currentPage - 1) * amount - 1, // pag2 =>  [9]
+        currentPage * amount - 1 // pag2 =>  [19]
       )
-    : []; // slice(0,9)
+    : [];
 
   const handleLR = (value) => {
     switch (value) {
@@ -82,15 +81,23 @@ function Pagination() {
           </span>
         </div>
 
-        <div className={`${s.cardsContainer} `}>
-          {!!paginatedCountries.length ? (
-            paginatedCountries.map((country) => (
-              <Card key={country.id} country={country} />
-            ))
-          ) : (
-            <NoResults />
-          )}
-        </div>
+        {currentPage === 1 ? (
+          <div className={s.firstPage}>
+            {firstPage?.map((c) => (
+              <Card key={c.id} country={c} />
+            ))}
+          </div>
+        ) : (
+          <div className={`${s.cardsContainer} `}>
+            {!!paginatedCountries.length ? (
+              paginatedCountries.map((country) => (
+                <Card key={country.id} country={country} />
+              ))
+            ) : (
+              <NoResults />
+            )}
+          </div>
+        )}
       </div>
     </>
   );

@@ -7,13 +7,7 @@ function Card({ country }) {
   return (
     <Link to={`/detail/${country.id}`} className={`${s.link}`}>
       <article className={`${s.article}`}>
-        <Image flag={country.flagImg}>
-          {/* <img
-            src={country.flagImg}
-            alt={country.name}
-            className={`${s.flag}`}
-          /> */}
-        </Image>
+        <Image flag={country.flagImg}></Image>
         <h2 className={`${s.country}`}>{country.name}</h2>
         <hr className={`${s.hr}`} />
         <p className={`${s.continent}`}>{country.continent}</p>
@@ -29,7 +23,6 @@ export default Card;
 
 const Image = styled.div`
   background-image: url(${({ flag }) => flag});
-  /* background-size: 100%, 200%; */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

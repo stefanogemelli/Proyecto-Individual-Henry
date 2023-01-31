@@ -4,23 +4,54 @@
 .cardsContainer{
   margin-top: 10px;
   margin-left: 50px;
+  padding-top: 50px;
   width: 80vw;
-  max-width: 1200px;
+  max-width: 1400px;
   display: grid;
-  grid-template-columns: repeat(3,300px);
-  grid-auto-rows: 220px;
-  gap: 30px;
+  grid-template-columns: repeat(5,250px);
+  grid-auto-rows: 210px;
+  gap: 60px 20px;
   justify-content: center;
 }
-/* .firstPage{
-  margin-top: 100px;
-  grid-template-columns: repeat(2,250px);
-  grid-auto-rows: 150px;
-  gap: 30px;
-} */
+.firstPage{
+  margin-top: 10px;
+  margin-left: 50px;
+  width: 80vw;
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: repeat(3,320px);
+  grid-auto-rows: 220px;
+  gap: 20px 60px;
+  justify-content: center;
+}
+.firstPage a:nth-child(-n+9){
+  animation: appear3 1s 1;
+  animation-timing-function: ease-out;
+}
+@keyframes appear3{
+  0%{opacity: 0;}
+  40%{opacity: 0;}
+  100%{opacity:1;}
+}
+.firstPage a:nth-child(-n+6){
+  animation: appear2 .8s 1;
+}
+@keyframes appear2{
+  0%{opacity: 0;}
+  25%{opacity: 0;}
+  100%{opacity:1;}
+}
+.firstPage a:nth-child(-n+3){
+  animation: appear1 .5s 1;
+}
+@keyframes appear1{
+  0%{opacity: 0;}
+  100%{opacity:1;}
+}
+
+
 .buttons{
   margin-bottom: 20px;
-  /* border: 1px solid wheat; */
 }
 .btn{
   font-size: 1.1rem;
