@@ -20,7 +20,7 @@ function Error404() {
         <h2>404 Error</h2>
       </div>
       <div className="not-found-body">
-        <p>Sorry, the pokePage you are looking for could not be found.</p>
+        <p>Lo sentimos, la página a la que intentas acceder no existe.</p>
       </div>
       <div className="not-found-footer">
         <button onClick={handleClose}>Close</button>

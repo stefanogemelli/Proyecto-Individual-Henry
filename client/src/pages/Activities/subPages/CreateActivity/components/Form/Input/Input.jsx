@@ -2,8 +2,6 @@ import s from "./Input.module.css";
 
 const namesToRender = {
   name: "Nombre",
-  dificult: "Dificultad",
-  duration: "Duración",
 };
 
 function Input({ handleChange, value, name, type, error }) {
@@ -23,10 +21,10 @@ function Input({ handleChange, value, name, type, error }) {
         <label className={s.form__label} htmlFor={name}>
           {namesToRender[name]}
         </label>
-        <span className={`${s.spanError} ${error && s.errorVisible}`}>
-          {error}
-        </span>
       </div>
+      <span className={`${s.spanError} ${error && s.errorVisible}`}>
+        {error}*
+      </span>
     </>
   );
 }

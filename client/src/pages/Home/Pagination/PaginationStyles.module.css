@@ -1,19 +1,8 @@
 /* .container{
   border: 1px solid wheat;
 } */
+
 .cardsContainer{
-  margin-top: 10px;
-  margin-left: 50px;
-  padding-top: 50px;
-  width: 80vw;
-  max-width: 1400px;
-  display: grid;
-  grid-template-columns: repeat(5,250px);
-  grid-auto-rows: 210px;
-  gap: 60px 20px;
-  justify-content: center;
-}
-.firstPage{
   margin-top: 10px;
   margin-left: 50px;
   width: 80vw;
@@ -24,7 +13,7 @@
   gap: 20px 60px;
   justify-content: center;
 }
-.firstPage a:nth-child(-n+9){
+.cardsContainer a:nth-child(-n+9){
   animation: appear3 1s 1;
   animation-timing-function: ease-out;
 }
@@ -33,7 +22,7 @@
   40%{opacity: 0;}
   100%{opacity:1;}
 }
-.firstPage a:nth-child(-n+6){
+.cardsContainer a:nth-child(-n+6){
   animation: appear2 .8s 1;
 }
 @keyframes appear2{
@@ -41,7 +30,7 @@
   25%{opacity: 0;}
   100%{opacity:1;}
 }
-.firstPage a:nth-child(-n+3){
+.cardsContainer a:nth-child(-n+3){
   animation: appear1 .5s 1;
 }
 @keyframes appear1{

@@ -3,13 +3,13 @@
   position: relative;
   padding: 20px 0 0;
   margin-top: 10px;
-  width: 100%;
+  width: 90%;
   max-width: 300px;
 }
 
 .form__field {
   font-family: inherit;
-  width: 100%;
+  width: 90%;
   border: none;
   border-bottom: 2px solid var(--text);
   outline: 0;
@@ -33,6 +33,7 @@
 .form__label {
   position: absolute;
   top: 0;
+  left: 5%;
   display: block;
   transition: 0.2s;
   font-size: 17px;
@@ -58,14 +59,14 @@
   font-weight: 700;
 }
 
-/* reset input */
 .form__field:required, .form__field:invalid {
   box-shadow: none;
 }
 
 .spanError{
+  width: 90%;
   opacity: 0;
-  color: var(--golden);
+  color: rgb(220, 44, 44);
   line-height: 18px;
   transition: all 25ms ease-in;
 }

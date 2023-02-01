@@ -3,6 +3,7 @@ import { createActivity } from "../../services/createActivity";
 import formValidate from "../../services/formValidate";
 
 import Input from "./Input/Input";
+import InputRange from "./InputRange/InputRange";
 
 import s from "./FormStyles.module.css";
 import SelectIdCountries from "./SelectIdCountries/SelectIdCountries";
@@ -14,8 +15,8 @@ function Form() {
   const [infoModal, setInfoModal] = useState({});
   const [inputs, setInputs] = useState({
     name: "",
-    dificult: "",
-    duration: "",
+    dificult: 1,
+    duration: 0.5,
     season: "",
   });
   const [idCountries, setIdCountries] = useState([]);
@@ -69,18 +70,36 @@ function Form() {
           type="text"
           error={errors.name}
         />
-        <Input
+
+        {/* <Input
           handleChange={handleChange}
           value={inputs.dificult}
           name="dificult"
           type="number"
           error={errors.dificult}
+        /> */}
+        <InputRange
+          handleChange={handleChange}
+          value={inputs.dificult}
+          name="dificult"
+          min="1"
+          max="5"
+          step={1}
+          error={errors.dificult}
         />
-        <Input
+        {/* <Input
           handleChange={handleChange}
           value={inputs.duration}
           name="duration"
-          type="text"
+          error={errors.duration}
+        /> */}
+        <InputRange
+          handleChange={handleChange}
+          value={inputs.duration}
+          name="duration"
+          min=".5"
+          max="12"
+          step="0.5"
           error={errors.duration}
         />
 
