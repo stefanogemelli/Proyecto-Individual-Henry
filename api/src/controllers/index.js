@@ -122,6 +122,11 @@ const getActivities = async () => {
   return listActivities;
 };
 
+const getActivityById = async (id) => {
+  const activity = await Activity.findByPk(id);
+  return activity;
+};
+
 const updateActivity = async (id, body) => {
   const [result] = await Activity.update(body, {
     where: { id: id },
@@ -155,4 +160,5 @@ module.exports = {
   updateActivity,
   deleteActivity,
   unassignActivity,
+  getActivityById,
 };

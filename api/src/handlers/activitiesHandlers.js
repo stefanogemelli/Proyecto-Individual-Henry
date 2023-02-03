@@ -4,6 +4,7 @@ const {
   getActivityNames,
   updateActivity,
   deleteActivity,
+  getActivityById,
 } = require("../controllers");
 
 const get_activities = async (req, res) => {
@@ -20,6 +21,15 @@ const get_activitiesNames = async (req, res) => {
     res.status(200).json(result);
   } catch (error) {
     res.status(400).send(error.message);
+  }
+};
+
+const get_activitiyById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    res.status(200).json(await getActivityById(id));
+  } catch (error) {
+    console.log(error);
   }
 };
 
@@ -63,4 +73,5 @@ module.exports = {
   post_createActivity,
   delete_deleteActivity,
   update_deleteActivity,
+  get_activitiyById,
 };
