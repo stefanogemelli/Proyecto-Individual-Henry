@@ -2,6 +2,7 @@ const { Router } = require("express");
 const {
   get_countries,
   get_countriesById,
+  unassign_activity,
 } = require("../../handlers/countriesHandlers");
 
 const countriesRouter = Router();
@@ -20,6 +21,8 @@ countriesRouter.get("/", get_countries);
 // Debe traer solo los datos pedidos en la ruta de detalle de país
 // Incluir los datos de las actividades turísticas correspondientes
 countriesRouter.get("/:idCountry", get_countriesById);
+
+countriesRouter.put("/unassign/:idCountry", unassign_activity);
 
 module.exports = countriesRouter;
 

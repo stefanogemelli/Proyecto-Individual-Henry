@@ -2,6 +2,7 @@ const {
   getCountries,
   getCountriesByName,
   getCountryById,
+  unassignActivity,
 } = require("../controllers");
 
 const get_countries = async (req, res) => {
@@ -31,4 +32,16 @@ const get_countriesById = async (req, res) => {
     res.status(204).json({ error: error.message });
   }
 };
-module.exports = { get_countries, get_countriesById };
+
+const unassign_activity = async (req, res) => {
+  const { idCountry } = req.params;
+  const { idActivity } = req.body;
+  try {
+    let result = await unassignActivity(idCountry, idActivity);
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(204).json({ error: error.message });
+  }
+};
+
+module.exports = { get_countries, get_countriesById, unassign_activity };

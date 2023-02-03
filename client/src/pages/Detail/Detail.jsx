@@ -1,3 +1,5 @@
+import axios from "axios";
+
 import CountryDetailChart from "../../components/CountryDetailChart/CountryDetailChart";
 import CountryDetailActivities from "../../components/CountryDetailActivities/CountryDetailActivities";
 
@@ -11,9 +13,9 @@ function Detail() {
   const [country, setCountry] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:3001/countries/${idCountry}`)
-      .then((data) => data.json())
-      .then((data) => setCountry(data))
+    axios
+      .get(`http://localhost:3001/countries/${idCountry}`)
+      .then(({ data }) => setCountry(data))
       .catch((err) => {
         console.log(err);
       });

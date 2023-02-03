@@ -28,7 +28,6 @@ function Pagination() {
     switch (value) {
       case "LL":
         currentPage > 1 && dispatch(setCurrentPage(1));
-
         break;
       case "L":
         currentPage > 1 && dispatch(setCurrentPage(currentPage - 1));

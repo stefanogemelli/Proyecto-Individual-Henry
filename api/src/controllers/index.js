@@ -122,9 +122,25 @@ const getActivities = async () => {
   return listActivities;
 };
 
+const updateActivity = async (id, body) => {
+  const [result] = await Activity.update(body, {
+    where: { id: id },
+  });
+
+  return result === 1
+    ? "Actualización exitosa"
+    : "Hubo un fallo en la actualización";
+};
+
 const deleteActivity = async (id) => {
   const activity = await Activity.findByPk(id);
   await activity.destroy();
+  return { message: "Actividad eliminada con éxito" };
+};
+
+const unassignActivity = async (idCountry, idActivity) => {
+  const country = await Country.findByPk(idCountry);
+  await country.removeActivity(idActivity);
   return { message: "Actividad eliminada con éxito" };
 };
 
@@ -136,5 +152,7 @@ module.exports = {
   createActivity,
   getActivities,
   getActivityNames,
+  updateActivity,
   deleteActivity,
+  unassignActivity,
 };

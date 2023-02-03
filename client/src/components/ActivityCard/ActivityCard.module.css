@@ -2,7 +2,6 @@
   padding: 15px;
   border:1px solid var(--text);
   border-radius: 10px 10px 3px 3px;
-  cursor:pointer;
   width: 230px;
   position: relative;
 }
@@ -18,8 +17,6 @@
 .hr{
   border-color: var(--textHover)
 }
-
-
 .card, .h3  {
   transition: all .1s ease;
 }
@@ -33,6 +30,10 @@
   top: 5px;
   right: 3px;
   opacity: 0;
+  cursor:pointer;
+}
+.deleteIcon:hover{
+  transform: scale(1.1);
 }
 .card:hover .deleteIcon{
   opacity: 1;
