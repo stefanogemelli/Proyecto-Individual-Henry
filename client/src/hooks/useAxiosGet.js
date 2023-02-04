@@ -1,26 +1,28 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+const baseUrl = "http://localhost:3001";
+
 export function useAxiosGet(url) {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
   const [data, setData] = useState(null);
   const [error, setError] = useState(false);
 
   useEffect(async () => {
     try {
-      let { data } = await axios.get(url);
-      // if (!data) throw Error({ error: true, status: data.status }); // probar si anda asi
-      setIsLoading(false);
+      let { data } = await axios.get(baseUrl + url);
+      // if (!data) throw Error({ error: true, status: data.status }); // probar si anda así
       setData(data);
+      setIsLoaded(true);
     } catch (error) {
-      setIsLoading(false);
       setError(error);
+      setIsLoaded(true);
     }
     return () => {
       setData(null);
-      setIsLoading(true);
+      setIsLoaded(false);
       setError(false);
     };
   }, [url]);
-  return [isLoading, data, error];
+  return [isLoaded, data, error];
 }
