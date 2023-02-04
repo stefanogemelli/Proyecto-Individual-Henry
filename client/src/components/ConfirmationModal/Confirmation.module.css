@@ -1,0 +1,67 @@
+.bg{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: rgba(0, 0, 0, 0.701);
+  backdrop-filter: blur(10px);
+  transition: all .2s ease-in;
+  opacity: 0;
+  z-index: 100;
+}
+.modalActive{
+  opacity: 1;
+}
+.modal{
+  background-color: var(--black);
+  height: 400px;
+  width: 400px;
+  border: 1px solid var(--textHover);
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.message{
+  font-size: 1.7rem;
+  color: var(--textHover);
+}
+.card{
+  /* border: 1px solid var(--textHover); */
+  width: 300px;
+  background-color: var(--bg);
+  padding: 20px;
+  margin: auto;
+  font-size: 1.2rem;
+}
+.h3{
+  color: var(--textHover)
+}
+.hr{
+  border-color: var(--textHover)
+}
+.btn{
+  align-self: center;
+  width: 300px;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 1.3rem;
+  background-color: var(--bgHover);
+  color: var(--textHover);
+  border-color: var(--textHover);
+
+  font-weight:600 ;
+}
+.btn:hover{
+  transform: scaleY(1.05);
+  background-color: var(--bgMenu);
+
+}
+.btn:active{
+  transform: scaleY(1);
+}

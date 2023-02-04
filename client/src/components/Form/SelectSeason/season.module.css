@@ -1,0 +1,6 @@
+.select{
+  font-size: 1.2rem;
+  margin: .3rem 0;
+  width: 85%;
+  background-color: var(--bg);
+}

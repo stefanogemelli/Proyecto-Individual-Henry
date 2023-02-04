@@ -13,6 +13,7 @@ const switchPage = {
 
 function Activities() {
   const [page, setPage] = useState("Crear Actividad");
+
   return (
     <div className={s.container}>
       <NavBar page={page} setPage={setPage} />

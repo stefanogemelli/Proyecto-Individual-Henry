@@ -5,7 +5,7 @@ import s from "./CreateStyles.module.css";
 function CreateActivity() {
   return (
     <div className={`${s.container}`}>
-      <Form />
+      <Form title={"Crear nueva actividad"} />
     </div>
   );
 }

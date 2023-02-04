@@ -38,3 +38,21 @@
 .card:hover .deleteIcon{
   opacity: 1;
 }
+.editIcon{
+  background-image: url("../../assets/icons/edit.svg");
+  background-position: center;
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 5px;
+  left:3px;
+  opacity: 0;
+  cursor:pointer;
+}
+.editIcon:hover{
+  transform: scale(1.1);
+}
+.card:hover .editIcon{
+  opacity: 1;
+}

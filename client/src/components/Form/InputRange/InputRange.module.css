@@ -1,0 +1,32 @@
+.label{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.range{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 80%;
+  height: 10px;
+  border-radius: 5px;
+  background: var(--text);
+  outline: none;
+  opacity: .7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+.range:hover {
+  opacity: 1;
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--textHover);
+  cursor: pointer;
+}
+.range::-ms-thumb {
+  width: 40px;
+}
