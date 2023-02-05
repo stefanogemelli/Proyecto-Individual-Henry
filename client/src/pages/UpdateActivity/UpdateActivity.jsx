@@ -1,17 +1,20 @@
 import { useParams } from "react-router-dom";
+import ContainerDetail from "../../components/ContainerDetail/ContainerDetail";
 
-import { useAxiosGet } from "../../hooks/useAxiosGet";
+import { useAxios } from "../../hooks/useAxios";
 
 import s from "./UpdateActivity.module.css";
 
 function UpdateActivity() {
   const { idActivity } = useParams();
-  const [isLoading, data, error] = useAxiosGet(
-    `http://localhost:3001/activities/${idActivity}`
-  );
-  console.log(data || isLoading);
+  const [isLoaded, data, error] = useAxios(`/activities/${idActivity}`);
+  console.log(data || isLoaded);
 
-  return <div>UpdateActivity</div>;
+  return (
+    <ContainerDetail>
+      <h1 className={s.h1}>Hola UpdateActivity</h1>
+    </ContainerDetail>
+  );
 }
 
 export default UpdateActivity;

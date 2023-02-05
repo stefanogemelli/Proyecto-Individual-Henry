@@ -10,6 +10,7 @@ import SelectIdCountries from "./SelectIdCountries/SelectIdCountries";
 import ShowCountries from "../ShowCountries/ShowCountries";
 import SelectSeason from "./SelectSeason/SelectSeason";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
+// import { useAxios } from "../../../../../../hooks/useAxios";
 
 function Form({ title, inputsState }) {
   const [infoModal, setInfoModal] = useState({});
@@ -45,6 +46,7 @@ function Form({ title, inputsState }) {
       idCountries.length > 0
     ) {
       const data = await createActivity({ ...inputs, idCountries });
+      console.log(data);
       setInfoModal(data);
       setInputs({
         name: "",
