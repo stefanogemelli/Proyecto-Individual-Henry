@@ -46,7 +46,6 @@ function Form({ title, inputsState }) {
       idCountries.length > 0
     ) {
       const data = await createActivity({ ...inputs, idCountries });
-      console.log(data);
       setInfoModal(data);
       setInputs({
         name: "",

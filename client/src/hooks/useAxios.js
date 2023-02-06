@@ -12,7 +12,7 @@ export function useAxios(url) {
     (async () => {
       try {
         let { data } = await axios.get(url);
-        // if (!data) throw Error({ error: true, status: data.status }); // probar si anda así
+        // if (!data) throw Error({ message: "error asjdfad" }); // probar si anda así
         setState((prev) => {
           return { ...prev, data, isLoaded: true };
         });
