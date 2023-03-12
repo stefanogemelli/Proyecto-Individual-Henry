@@ -1,17 +1,21 @@
-/* .container{
-  border: 1px solid wheat;
-} */
+.container{
+  width: 100%;
+}
 
 .cardsContainer{
   margin-top: 10px;
-  margin-left: 50px;
-  width: 80vw;
-  max-width: 1400px;
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(3,320px);
-  grid-auto-rows: 220px;
+  grid-template-columns: repeat(3,290px);
+  grid-auto-rows: 200px;
   gap: 20px 60px;
   justify-content: center;
+}
+@media only screen and (max-width: 1450px){
+  .cardsContainer{
+    grid-template-columns: repeat(3,250px);
+    gap: 10px 20px;
+  }
 }
 .cardsContainer a:nth-child(-n+9){
   animation: appear3 1s 1;

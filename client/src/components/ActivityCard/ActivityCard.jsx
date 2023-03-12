@@ -2,7 +2,7 @@ import { deleteActivity } from "./services/deleteActivity";
 import { unassignActivity } from "./services/unassignActivity";
 
 import s from "./ActivityCard.module.css";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 function ActivityCard({ activity }) {
   const { id, name, dificult, duration, season } = activity;
@@ -29,9 +29,9 @@ function ActivityCard({ activity }) {
       }0hs`}</p>
       <p className={s.p}>{`Dificultad: ${dificult}`}</p>
       <i className={s.deleteIcon} onClick={() => handleDelete(id)}></i>
-      <Link to={`/activities/update/${id}`}>
+      {/* <Link to={`/activities/update/${id}`}>
         <i className={s.editIcon}></i>
-      </Link>
+      </Link> */}
     </div>
   );
 }

@@ -12,11 +12,11 @@ function Home() {
   const allCountries = useSelector((state) => state.allCountries);
   useEffect(() => {
     !allCountries.length && dispatch(getAllCountriesApi());
-  }, []);
+  });
 
   return (
     <section className={`${s.container}`}>
-      <div className={`${s.background}`}></div>
+      {/* <div className={`${s.background}`}></div> */}
 
       <SideBar />
 

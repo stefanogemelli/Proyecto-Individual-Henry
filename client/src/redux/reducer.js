@@ -43,7 +43,6 @@ export const rootReducer = (state = initialState, { type, payload }) => {
         newFCountries = payload;
         newAllCountries = [payload];
       }
-      console.log(newFCountries);
       return {
         ...state,
         allCountries: newAllCountries,
@@ -89,7 +88,7 @@ export const rootReducer = (state = initialState, { type, payload }) => {
               return 1;
             }
           }
-        }), // REVISAR REVISAR REVISAR REVISAR REVISAR REVISAR REVISAR REVISAR REVISAR REVISAR
+        }),
         filteredCountries: [...state.filteredCountries].sort((a, b) => {
           if (payload.value === "Ascendente") {
             if (a[payload.sort] > b[payload.sort]) {

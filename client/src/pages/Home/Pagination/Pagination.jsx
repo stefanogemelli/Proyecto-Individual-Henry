@@ -14,7 +14,7 @@ import NoResults from "../NoResults/NoResults";
 
 function Pagination() {
   const allCountries = useSelector((state) => state.filteredCountries);
-  const currentPage = useSelector((state) => state.currentPage);
+  const currentPage = useSelector((state) => state?.currentPage);
   const dispatch = useDispatch();
 
   const amount = 9;
@@ -44,8 +44,11 @@ function Pagination() {
   };
 
   const buttonIndex = []; //  [1,2,3,4,5]
-  for (let i = 1; i <= totalPages; i++) {
-    buttonIndex.push(i);
+  buttonIndex.push(currentPage);
+  for (let i = 1; i <= 2; i++) {
+    if (buttonIndex[0] > 1) buttonIndex.unshift(currentPage - i);
+    if (buttonIndex[buttonIndex.length - 1] < totalPages)
+      buttonIndex.push(currentPage + i);
   }
 
   return (

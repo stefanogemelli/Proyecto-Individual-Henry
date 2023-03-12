@@ -8,6 +8,7 @@ function ConfirmationModal({ infoModal, setInfoModal }) {
 
   const closeModal = () => {
     setInfoModal({});
+    window.location.reload();
     push("/home");
   };
   return (

@@ -67,6 +67,15 @@
 .reactRouter{
   background-image: url("../../../../assets/icons/technologies/react-router.svg");
 }
+.nodejs{
+  background-image: url("../../../../assets/icons/technologies/nodejs.svg");
+}
+.expressjs{
+  background-image: url("../../../../assets/icons/technologies/expressjs.svg");
+}
+.sequelize{
+  background-image: url("../../../../assets/icons/technologies/sequelize.svg");
+}
 .postgreSQL{
   background-image: url("../../../../assets/icons/technologies/posgreSQL.svg");
 }

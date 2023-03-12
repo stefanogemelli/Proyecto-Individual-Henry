@@ -17,6 +17,7 @@
   border: 1px solid var(--textHover);
   padding: 3px 7px;
   transition: all .05s ease-out;
+  cursor: pointer;
 }
 .btn:hover{
   transform: scale(1.05);

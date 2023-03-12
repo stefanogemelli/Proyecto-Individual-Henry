@@ -14,14 +14,14 @@ function NavBar({ page, setPage }) {
       >
         Sobre el proyecto
       </li>
-      <li
+      {/* <li
         onClick={() => {
           handleClick("me");
         }}
         className={`${s.li} ${page === "me" && s.active}`}
       >
         Sobre mí
-      </li>
+      </li> */}
     </ul>
   );
 }

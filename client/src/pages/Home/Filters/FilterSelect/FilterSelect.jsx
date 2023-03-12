@@ -7,7 +7,6 @@ import s from "./SelectStyles.module.css";
 function FilterSelect({ options, name }) {
   const globalValue = useSelector((state) => state.filters[name]);
   const dispatch = useDispatch();
-  // console.log(name, "  =>  ", globalValue);
 
   const handleChange = (e) => {
     const inpValue = e.target.value;

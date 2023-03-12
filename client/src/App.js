@@ -4,9 +4,7 @@ import { Switch, Route, useLocation } from "react-router-dom";
 import "./App.css";
 const Home = lazy(() => import("./pages/Home/Home"));
 const Landing = lazy(() => import("./pages/Landing/Landing"));
-const UpdateActivity = lazy(() =>
-  import("./pages/UpdateActivity/UpdateActivity")
-);
+
 const About = lazy(() => import("./pages/About/About"));
 const Activities = lazy(() => import("./pages/Activities/Activities"));
 const Detail = lazy(() => import("./pages/Detail/Detail"));
@@ -32,11 +30,6 @@ function App() {
           <Route exact path="/home" component={Home} />
           <Route exact path="/detail/:idCountry" component={Detail} />
           <Route exact path="/activities" component={Activities} />
-          <Route
-            exact
-            path="/activities/update/:idActivity"
-            component={UpdateActivity}
-          />
           <Route exact path="/about" component={About} />
           <Route path="/*" component={Error404} />
         </Switch>

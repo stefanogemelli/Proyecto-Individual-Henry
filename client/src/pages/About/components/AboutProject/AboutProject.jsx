@@ -8,10 +8,10 @@ function AboutProject() {
       <div className={s.bgText}>
         <p className={s.text}>
           Es una single page application CRUD, sobre paises y actividades
-          turísticas. Cuenta con la posibilidad de crear, asignar, actualizar y
-          eliminar actividades, visitar una pagina detallada de los países en la
-          cual se pueden visualizar las actividades que le corresponden, así
-          como también desasignar actividades. Los paises en la pagina principal
+          turísticas. Cuenta con la posibilidad de crear, asignar y eliminar
+          actividades, visitar una pagina detallada de los países en la cual se
+          pueden visualizar las actividades que le corresponden, así como
+          también desasignar actividades. Los paises en la pagina principal
           cuentan con una paginación y una barra lateral que permite realizar
           busquedas, filtros combinados y ordenamientos.
         </p>
@@ -42,6 +42,18 @@ function AboutProject() {
         <div className={s.divIcon}>
           <i className={`${s.reactRouter} ${s.allIcons}`}></i>
           <p>React-router</p>
+        </div>
+        <div className={s.divIcon}>
+          <i className={`${s.nodejs} ${s.allIcons}`}></i>
+          <p>NodeJS</p>
+        </div>
+        <div className={s.divIcon}>
+          <i className={`${s.expressjs} ${s.allIcons}`}></i>
+          <p>ExpressJS</p>
+        </div>
+        <div className={s.divIcon}>
+          <i className={`${s.sequelize} ${s.allIcons}`}></i>
+          <p>Sequelize</p>
         </div>
         <div className={s.divIcon}>
           <i className={`${s.postgreSQL} ${s.allIcons}`}></i>

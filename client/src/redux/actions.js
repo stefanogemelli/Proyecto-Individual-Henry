@@ -8,8 +8,8 @@ export const SET_COUNTRY_SEARCHED = "SET_COUNTRY_SEARCHED";
 
 export const getAllCountriesApi = () => async (dispatch) => {
   try {
-    const data = await fetch("http://localhost:3001/countries").then((data) =>
-      data.json()
+    const data = await fetch(`${process.env.REACT_APP_API_URL}/countries`).then(
+      (data) => data.json()
     );
     return dispatch({
       type: GET_ALL_COUNTRIES_API,
@@ -21,10 +21,9 @@ export const getAllCountriesApi = () => async (dispatch) => {
 };
 
 export const getCountriesFromApiByName = (name) => async (dispatch) => {
-  console.log("getCountriesFromApiByName");
   try {
     const data = await fetch(
-      `http://localhost:3001/countries?name=${name}`
+      `${process.env.REACT_APP_API_URL}/countries?name=${name}`
     ).then((data) => data.json());
     return dispatch({
       type: GET_COUNTRIES_API_BY_NAME,
@@ -65,7 +64,6 @@ export const setCurrentPage = (payload) => {
 };
 
 export const setCountrySearched = (payload) => {
-  console.log("setCountrySearched", payload);
   return {
     type: SET_COUNTRY_SEARCHED,
     payload: payload,
